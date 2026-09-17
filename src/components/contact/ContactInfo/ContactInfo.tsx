@@ -18,8 +18,8 @@ export const ContactInfo: React.FC = () => {
             </div>
             <div>
               <span className="channel-label">Email</span>
-              <a href="mailto:info@silvanosolutions.co.za" className="channel-value">
-                info@silvanosolutions.co.za
+              <a href="mailto:silvanosolutions@gmail.com" className="channel-value">
+                silvanosolutions@gmail.com
               </a>
             </div>
           </div>

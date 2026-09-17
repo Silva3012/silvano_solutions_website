@@ -59,9 +59,22 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     setIsSubmitting(true);
 
     try {
-      // V1 implementation: clean mock dispatch with safety timeout
-      // Readies code for: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      const response = await fetch('https://formsubmit.co/ajax/silvanosolutions@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `New inquiry from ${formData.name}`,
+          _captcha: 'true',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Contact form submission failed');
+      }
 
       setSubmitted(true);
       if (onSuccess) onSuccess();
@@ -101,7 +114,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
             Send another message
           </Button>
           <a
-            href={`mailto:info@silvanosolutions.co.za?subject=Follow-up: ${encodeURIComponent(
+            href={`mailto:silvanosolutions@gmail.com?subject=Follow-up: ${encodeURIComponent(
               formData.serviceInterest || 'Business Inquiry'
             )}`}
             className="direct-mail-fallback"

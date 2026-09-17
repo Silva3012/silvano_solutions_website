@@ -29,8 +29,8 @@ export const Footer: React.FC = () => {
               </div>
               <div className="footer-meta-item">
                 <Mail size={16} className="footer-meta-icon" />
-                <a href="mailto:info@silvanosolutions.co.za" className="footer-meta-link">
-                  info@silvanosolutions.co.za
+                  <a href="mailto:silvanosolutions@gmail.com" className="footer-meta-link">
+                  silvanosolutions@gmail.com
                 </a>
               </div>
             </div>

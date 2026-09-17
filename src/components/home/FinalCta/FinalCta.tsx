@@ -22,7 +22,7 @@ export const FinalCta: React.FC = () => {
                 <span>Start a conversation</span>
                 <ArrowRight size={18} />
               </Button>
-              <a href="mailto:info@silvanosolutions.co.za" className="direct-email-link">
+              <a href="mailto:silvanosolutions@gmail.com" className="direct-email-link">
                 <Mail size={16} />
                 <span>Or email directly</span>
               </a>
