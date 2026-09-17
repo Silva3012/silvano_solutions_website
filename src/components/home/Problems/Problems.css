@@ -1,0 +1,41 @@
+.problems-section {
+  background-color: var(--color-bg-main);
+}
+
+.problems-grid {
+  margin-top: 1rem;
+}
+
+.problem-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.problem-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.problem-icon {
+  color: var(--color-brand-primary);
+}
+
+.problem-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  margin-bottom: 0.75rem;
+}
+
+.problem-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+}

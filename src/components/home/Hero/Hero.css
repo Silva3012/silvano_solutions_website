@@ -1,0 +1,126 @@
+.hero-section {
+  padding: 6.5rem 0 5.5rem;
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-brand-surface);
+  color: var(--color-brand-primary);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+  border: 1px solid rgba(56, 70, 85, 0.15);
+}
+
+.hero-brand-tag {
+  letter-spacing: 0.02em;
+}
+
+.hero-eyebrow-divider {
+  color: #94a3b8;
+}
+
+.hero-sub-tag {
+  color: var(--color-text-body);
+  font-weight: 500;
+}
+
+.hero-headline {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-text-heading);
+  margin-bottom: 1.5rem;
+}
+
+.hero-copy {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+  max-width: 740px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-primary-btn {
+  box-shadow: 0 4px 12px rgba(56, 70, 85, 0.2);
+}
+
+.hero-commitments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+.commitment-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.commitment-icon {
+  color: var(--color-brand-primary);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 4rem 0 3.5rem;
+  }
+  .hero-headline {
+    font-size: 2.35rem;
+  }
+  .hero-copy {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .hero-commitments {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

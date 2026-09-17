@@ -1,0 +1,128 @@
+.final-cta-section {
+  padding: 5rem 0 6rem;
+  background-color: var(--color-bg-main);
+}
+
+.final-cta-card {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-primary) 100%);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.final-cta-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.12);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.final-cta-title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.final-cta-copy {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.final-cta-btn {
+  background-color: #ffffff !important;
+  color: var(--color-brand-dark) !important;
+  border-color: #ffffff !important;
+  font-weight: 600;
+}
+
+.final-cta-btn:hover {
+  background-color: #f1f5f9 !important;
+  transform: translateY(-1px);
+}
+
+.direct-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.direct-email-link:hover {
+  color: #38bdf8;
+}
+
+.final-cta-side-note {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.side-note-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.side-note-icon {
+  color: #38bdf8;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.side-note-item strong {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.side-note-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .final-cta-card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .final-cta-card {
+    padding: 2rem 1.5rem;
+  }
+  .final-cta-title {
+    font-size: 1.75rem;
+  }
+}

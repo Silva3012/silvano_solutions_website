@@ -1,0 +1,18 @@
+.services-page {
+  background-color: var(--color-bg-main);
+}
+
+.services-hero {
+  padding-bottom: 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.services-list-section {
+  padding-top: 3.5rem;
+}
+
+.services-detail-list {
+  max-width: 960px;
+  margin: 0 auto;
+}

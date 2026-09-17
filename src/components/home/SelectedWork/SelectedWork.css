@@ -1,0 +1,12 @@
+.selected-work-section {
+  background-color: var(--color-bg-main);
+}
+
+.selected-work-grid {
+  margin-top: 1rem;
+}
+
+.selected-work-cta {
+  margin-top: 3.5rem;
+  text-align: center;
+}

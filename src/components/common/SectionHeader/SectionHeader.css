@@ -1,0 +1,67 @@
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header-left {
+  text-align: left;
+  max-width: 840px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand-primary);
+  background-color: var(--color-brand-surface);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.section-header-inverted .section-eyebrow {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  color: var(--color-text-heading);
+  letter-spacing: -0.02em;
+}
+
+.section-header-inverted .section-title {
+  color: #ffffff;
+}
+
+.section-description {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text-body);
+}
+
+.section-header-inverted .section-description {
+  color: var(--color-text-on-dark-muted);
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .section-description {
+    font-size: 1rem;
+  }
+}
