@@ -59,7 +59,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/silvanosolutions@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/info@silvanosolutions.co.za', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
             Send another message
           </Button>
           <a
-            href={`mailto:silvanosolutions@gmail.com?subject=Follow-up: ${encodeURIComponent(
+            href={`mailto:info@silvanosolutions.co.za?subject=Follow-up: ${encodeURIComponent(
               formData.serviceInterest || 'Business Inquiry'
             )}`}
             className="direct-mail-fallback"

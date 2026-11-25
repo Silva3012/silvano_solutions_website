@@ -7,7 +7,7 @@ Marketing website for Silvano Solutions, built with React, TypeScript, and Vite.
 - Home, services, work, about, and contact pages
 - Responsive layout for desktop and mobile
 - Contact form delivered through FormSubmit
-- Direct email links to `silvanosolutions@gmail.com`
+- Direct email links to `info@silvanosolutions.co.za`
 - Client-side routing with React Router
 
 ## Requirements
@@ -45,7 +45,7 @@ Vite will print the local URL, usually `http://localhost:5173`.
 The contact form submits directly from the browser to FormSubmit at:
 
 ```text
-https://formsubmit.co/ajax/silvanosolutions@gmail.com
+https://formsubmit.co/ajax/info@silvanosolutions.co.za
 ```
 
 No backend, environment variables, or additional packages are required.
@@ -53,7 +53,7 @@ No backend, environment variables, or additional packages are required.
 After the first deployment:
 
 1. Open the deployed website and submit a test inquiry from `/contact`.
-2. Check `silvanosolutions@gmail.com` for FormSubmit's activation email.
+2. Check `info@silvanosolutions.co.za` for FormSubmit's activation email.
 3. Click the activation link in that email.
 4. Submit another test inquiry and confirm that it arrives in the inbox.
 
@@ -88,5 +88,5 @@ src/
 - Deploy the contents of `dist/`.
 - Configure SPA fallback routing to `index.html`.
 - Submit a real test inquiry after deployment.
-- Activate FormSubmit from the email sent to `silvanosolutions@gmail.com`.
+- Activate FormSubmit from the email sent to `info@silvanosolutions.co.za`.
 - Submit a second test inquiry and verify delivery.
