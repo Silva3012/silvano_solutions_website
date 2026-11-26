@@ -72,8 +72,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error('Contact form submission failed');
+      // FormSubmit returns HTTP 200 even when it rejects a submission (e.g. the
+      // address is not yet activated), so the JSON `success` flag must be checked too.
+      const result = (await response.json().catch(() => null)) as
+        | { success?: string | boolean; message?: string }
+        | null;
+
+      if (!response.ok || !result || String(result.success) !== 'true') {
+        console.error('FormSubmit rejected the submission:', result?.message ?? response.status);
+        throw new Error(result?.message ?? 'Contact form submission failed');
       }
 
       setSubmitted(true);
