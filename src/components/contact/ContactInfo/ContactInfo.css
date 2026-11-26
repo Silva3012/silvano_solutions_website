@@ -70,6 +70,11 @@
   font-weight: 500;
 }
 
+.channel-value-block {
+  display: block;
+  margin-top: var(--space-1);
+}
+
 .contact-expectations-box {
   background-color: var(--color-bg-subtle);
   border: 1px solid var(--border-subtle);

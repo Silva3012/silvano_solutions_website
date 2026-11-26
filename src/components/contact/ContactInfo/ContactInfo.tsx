@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2, Building2 } from 'lucide-react';
+import { company, companyCredentials } from '../../../data/companyData';
 import './ContactInfo.css';
 
 export const ContactInfo: React.FC = () => {
@@ -31,8 +32,26 @@ export const ContactInfo: React.FC = () => {
             <div>
               <span className="channel-label">Base</span>
               <span className="channel-value-static">
-                South Africa • Serving clients locally and abroad
+                {company.city}, {company.country} · Serving clients locally and abroad
               </span>
+            </div>
+          </div>
+
+          <div className="contact-channel-item">
+            <div className="channel-icon-wrap">
+              <Building2 size={18} />
+            </div>
+            <div>
+              <span className="channel-label">Company</span>
+              <span className="channel-value-static">{company.legalName}</span>
+              <span className="channel-value-static channel-value-block">
+                Reg. {company.registrationNumber}
+              </span>
+              {companyCredentials().map((item) => (
+                <span key={item} className="channel-value-static channel-value-block">
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Hero } from '../../components/home/Hero/Hero';
 import { ServicesOverview } from '../../components/home/ServicesOverview/ServicesOverview';
 import { WhoWeHelp } from '../../components/home/WhoWeHelp/WhoWeHelp';
+import { LanguagesBand } from '../../components/home/LanguagesBand/LanguagesBand';
 import { HowWeWork } from '../../components/home/HowWeWork/HowWeWork';
 import { SelectedWork } from '../../components/home/SelectedWork/SelectedWork';
 import { WhyUs } from '../../components/home/WhyUs/WhyUs';
@@ -12,13 +13,14 @@ export const HomePage: React.FC = () => {
     document.title = 'Silvano Solutions — Practical Technology for Businesses Ready to Grow';
   }, []);
 
-  // Reading order: claim → what we do → who it's for → proof (+ mid-page CTA)
-  // → how we work → why us → contact.
+  // Reading order: claim → what we do → who it's for → focal capability
+  // → proof (+ mid-page CTA) → how we work → who you'll work with → contact.
   return (
     <>
       <Hero />
       <ServicesOverview />
       <WhoWeHelp />
+      <LanguagesBand />
       <SelectedWork />
       <HowWeWork />
       <WhyUs />

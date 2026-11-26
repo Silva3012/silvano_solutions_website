@@ -63,7 +63,7 @@ export const AboutPage: React.FC = () => {
               </blockquote>
               <div className="quote-attribution">
                 <span className="quote-name">Silvano Solutions Philosophy</span>
-                <span className="quote-location">Johannesburg & Across South Africa</span>
+                <span className="quote-location">Cape Town, South Africa</span>
               </div>
             </Card>
           </div>

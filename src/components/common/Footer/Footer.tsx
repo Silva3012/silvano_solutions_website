@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Mail, ArrowRight } from 'lucide-react';
+import { company, companyCredentials } from '../../../data/companyData';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -25,7 +26,9 @@ export const Footer: React.FC = () => {
             <div className="footer-meta">
               <div className="footer-meta-item">
                 <MapPin size={16} className="footer-meta-icon" />
-                <span>South Africa • Operating locally and globally</span>
+                <span>
+                  {company.city}, {company.country}
+                </span>
               </div>
               <div className="footer-meta-item">
                 <Mail size={16} className="footer-meta-icon" />
@@ -84,9 +87,20 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="footer-bottom">
-          <p className="copyright">
-            © {currentYear} Silvano Solutions. All rights reserved.
-          </p>
+          <div className="footer-legal">
+            <p className="copyright">
+              © {currentYear} {company.legalName} ·{' '}
+              <span className="nowrap">Reg. {company.registrationNumber}</span>
+            </p>
+            <p className="copyright">
+              {company.tradingName} is a trading name of {company.legalName}.
+            </p>
+            {companyCredentials().map((item) => (
+              <p key={item} className="copyright">
+                {item}
+              </p>
+            ))}
+          </div>
           <p className="footer-note">
             Practical technology systems designed for business growth.
           </p>

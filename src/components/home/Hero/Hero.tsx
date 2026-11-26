@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../../common/Button/Button';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { company } from '../../../data/companyData';
 import './Hero.css';
 
 export const Hero: React.FC = () => {
@@ -8,12 +9,6 @@ export const Hero: React.FC = () => {
     <section className="hero-section">
       <div className="container hero-container">
         <div className="hero-content">
-          <div className="hero-eyebrow">
-            <span className="hero-brand-tag">Silvano Solutions</span>
-            <span className="hero-eyebrow-divider">•</span>
-            <span className="hero-sub-tag">South African Technology Partner</span>
-          </div>
-
           <h1 className="hero-headline">
             Practical technology for businesses ready to grow.
           </h1>
@@ -33,20 +28,14 @@ export const Hero: React.FC = () => {
             </Button>
           </div>
 
-          <div className="hero-commitments">
-            <div className="commitment-item">
-              <CheckCircle2 size={16} className="commitment-icon" />
-              <span>Business-first problem solving</span>
-            </div>
-            <div className="commitment-item">
-              <CheckCircle2 size={16} className="commitment-icon" />
-              <span>Pragmatic architectures</span>
-            </div>
-            <div className="commitment-item">
-              <CheckCircle2 size={16} className="commitment-icon" />
-              <span>Direct founder communication</span>
-            </div>
-          </div>
+          {/* Credibility line: confirmed company facts only (see src/data/companyData.ts). */}
+          <ul className="hero-credentials" aria-label="Company details">
+            <li>{company.legalName}</li>
+            <li>{company.city}</li>
+            <li>
+              Led by {company.principal.name}, {company.principal.role}
+            </li>
+          </ul>
         </div>
       </div>
     </section>

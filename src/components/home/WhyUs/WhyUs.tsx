@@ -1,5 +1,6 @@
 import React from 'react';
 import { Network, Code, Users, Lightbulb } from 'lucide-react';
+import { company } from '../../../data/companyData';
 import './WhyUs.css';
 
 const strengths = [
@@ -34,12 +35,11 @@ export const WhyUs: React.FC = () => {
     <section className="section section-alt why-us-section" id="why-us">
       <div className="container why-us-layout">
         <div className="why-us-intro">
-          <h2 className="why-us-title">
-            Technology should fit the business — not the other way around.
-          </h2>
+          <h2 className="why-us-title">Who you'll work with</h2>
           <p className="why-us-lead">
-            Silvano Solutions combines software engineering, IT infrastructure, business understanding
-            and practical problem solving to build technology that works in the real world.
+            {company.tradingName} is led by {company.principal.name}, {company.principal.role}, and
+            combines software engineering, IT infrastructure, business understanding and practical
+            problem solving to build technology that works in the real world.
           </p>
           <p className="why-us-sub">
             Our approach is shaped by experience across IT support, networking, software development,

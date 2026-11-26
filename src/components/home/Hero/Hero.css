@@ -18,33 +18,6 @@
   align-items: center;
 }
 
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: var(--color-brand-surface);
-  color: var(--color-brand-primary);
-  padding: 0.35rem 0.95rem;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1.75rem;
-  border: 1px solid rgba(56, 70, 85, 0.15);
-}
-
-.hero-brand-tag {
-  letter-spacing: 0.02em;
-}
-
-.hero-eyebrow-divider {
-  color: #94a3b8;
-}
-
-.hero-sub-tag {
-  color: var(--color-text-body);
-  font-weight: 500;
-}
-
 .hero-headline {
   font-size: 3.5rem;
   font-weight: 800;
@@ -75,28 +48,27 @@
   box-shadow: 0 4px 12px rgba(56, 70, 85, 0.2);
 }
 
-.hero-commitments {
+/* Credibility line: facts separated by middle dots on wide screens,
+   one fact per line on phones (so no dot is ever left dangling). */
+.hero-credentials {
+  list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.25rem;
   flex-wrap: wrap;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
+  row-gap: var(--space-2);
   width: 100%;
-}
-
-.commitment-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
   font-weight: 500;
+  color: var(--color-text-body);
 }
 
-.commitment-icon {
-  color: var(--color-brand-primary);
+.hero-credentials li + li::before {
+  content: '·';
+  margin-inline: var(--space-3);
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 768px) {
@@ -118,9 +90,15 @@
   .hero-actions .btn {
     width: 100%;
   }
-  .hero-commitments {
+}
+
+@media (max-width: 640px) {
+  .hero-credentials {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    row-gap: var(--space-1);
+  }
+
+  .hero-credentials li + li::before {
+    content: none;
   }
 }

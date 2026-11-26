@@ -126,6 +126,11 @@ p {
   }
 }
 
+/* Keep short identifiers (registration numbers, etc.) on one line. */
+.nowrap {
+  white-space: nowrap;
+}
+
 /* Accessibility */
 .sr-only {
   position: absolute;
