@@ -78,11 +78,24 @@ button {
   color: var(--color-text-on-dark);
 }
 
-/* Typography Utilities */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-heading);
   font-weight: 700;
   line-height: 1.25;
+  text-wrap: balance; /* even line lengths in multi-line headings */
+}
+
+/* Display and section headings carry the serif; smaller headings stay Inter. */
+h1, h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+}
+
+p, li, dd {
+  text-wrap: pretty; /* avoids a single word alone on the last line */
 }
 
 p {

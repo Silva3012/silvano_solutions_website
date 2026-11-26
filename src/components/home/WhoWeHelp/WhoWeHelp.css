@@ -33,14 +33,14 @@
 }
 
 .audience-title {
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-text-heading);
 }
 
 .audience-desc {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.65;
   color: var(--color-text-body);
 }

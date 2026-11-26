@@ -42,7 +42,7 @@
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--color-text-body);
   position: relative;
@@ -135,7 +135,7 @@
 
 .mobile-nav-link {
   display: block;
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   font-weight: 500;
   padding: 0.75rem 0;
   color: var(--color-text-heading);

@@ -15,12 +15,12 @@
 
 .badge-sm {
   padding: 0.15rem 0.55rem;
-  font-size: 0.725rem;
+  font-size: var(--text-xs);
 }
 
 .badge-md {
   padding: 0.25rem 0.75rem;
-  font-size: 0.785rem;
+  font-size: var(--text-xs);
 }
 
 /* Variant classes are kept so components don't change; they share the base style. */

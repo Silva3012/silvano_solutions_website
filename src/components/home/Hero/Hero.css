@@ -19,16 +19,16 @@
 }
 
 .hero-headline {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--color-text-heading);
   margin-bottom: 1.5rem;
 }
 
 .hero-copy {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   line-height: 1.6;
   color: var(--color-text-body);
   max-width: 740px;
@@ -60,7 +60,7 @@
   width: 100%;
   padding-top: var(--space-6);
   border-top: 1px solid var(--border-subtle);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--color-text-body);
 }
@@ -75,11 +75,8 @@
   .hero-section {
     padding: 4rem 0 3.5rem;
   }
-  .hero-headline {
-    font-size: 2.35rem;
-  }
   .hero-copy {
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     margin-bottom: 2rem;
   }
   .hero-actions {

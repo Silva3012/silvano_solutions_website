@@ -16,8 +16,8 @@
 }
 
 .final-cta-title {
-  font-size: 2.35rem;
-  font-weight: 800;
+  font-size: var(--text-3xl);
+  font-weight: 600;
   color: var(--color-text-on-dark);
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -25,7 +25,7 @@
 }
 
 .final-cta-copy {
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   line-height: 1.6;
   color: var(--color-text-on-dark-muted);
   margin-bottom: 2rem;
@@ -58,7 +58,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--color-text-on-dark);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -75,7 +75,7 @@
 }
 
 .side-note-title {
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
   color: var(--color-text-on-dark);
   margin-bottom: var(--space-4);
@@ -92,7 +92,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  font-size: 0.925rem;
+  font-size: var(--text-sm);
   line-height: 1.5;
   color: var(--color-text-on-dark-muted);
 }
@@ -121,8 +121,5 @@
 @media (max-width: 600px) {
   .final-cta-card {
     padding: 2rem 1.5rem;
-  }
-  .final-cta-title {
-    font-size: 1.75rem;
   }
 }

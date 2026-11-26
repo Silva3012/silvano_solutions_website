@@ -38,7 +38,7 @@
 }
 
 .service-card-title {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-text-heading);
@@ -46,7 +46,7 @@
 }
 
 .service-card-desc {
-  font-size: 0.975rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-text-body);
   max-width: 60ch;
