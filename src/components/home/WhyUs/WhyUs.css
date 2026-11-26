@@ -1,76 +1,93 @@
-.why-us-section {
-  position: relative;
+/* Split layout: the argument on the left, the four strengths that back it
+   on the right as a divided 2x2 list (no cards). */
+.why-us-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  column-gap: var(--space-8);
+  align-items: start;
 }
 
 .why-us-intro {
-  max-width: 860px;
-  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
 .why-us-title {
   font-size: 2.25rem;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--color-text-heading);
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-
-.why-us-copy-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-bottom: var(--space-2);
 }
 
 .why-us-lead {
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   color: var(--color-text-heading);
   font-weight: 500;
+  max-width: 60ch;
 }
 
 .why-us-sub {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--color-text-body);
+  max-width: 60ch;
 }
 
-.why-us-grid {
-  margin-top: 1rem;
+.why-us-points {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--space-6);
 }
 
-.why-card {
+.why-point {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--border-default);
+}
+
+.why-point-head {
   display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
-.why-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-brand-surface);
+.why-point-icon {
+  display: flex;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
   color: var(--color-brand-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
 }
 
 .why-card-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  line-height: 1.35;
   color: var(--color-text-heading);
-  margin-bottom: 0.65rem;
 }
 
 .why-card-desc {
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: var(--color-text-body);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  .why-us-layout {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-7);
+  }
+}
+
+@media (max-width: 640px) {
   .why-us-title {
     font-size: 1.75rem;
+  }
+
+  .why-us-points {
+    grid-template-columns: 1fr;
   }
 }

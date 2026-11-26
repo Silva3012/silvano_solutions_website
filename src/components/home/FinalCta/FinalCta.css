@@ -66,11 +66,10 @@
   color: #38bdf8;
 }
 
+/* A column beside the main copy, separated by a hairline, not a box inside the card. */
 .final-cta-side-note {
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  padding: 2rem;
+  padding-left: var(--space-6);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .side-note-item {
@@ -102,6 +101,13 @@
     grid-template-columns: 1fr;
     padding: 2.5rem;
     gap: 2rem;
+  }
+
+  .final-cta-side-note {
+    padding-left: 0;
+    padding-top: var(--space-5);
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 }
 

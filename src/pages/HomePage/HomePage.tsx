@@ -12,13 +12,15 @@ export const HomePage: React.FC = () => {
     document.title = 'Silvano Solutions — Practical Technology for Businesses Ready to Grow';
   }, []);
 
+  // Reading order: claim → what we do → who it's for → proof (+ mid-page CTA)
+  // → how we work → why us → contact.
   return (
     <>
       <Hero />
       <ServicesOverview />
       <WhoWeHelp />
-      <HowWeWork />
       <SelectedWork />
+      <HowWeWork />
       <WhyUs />
       <FinalCta />
     </>
