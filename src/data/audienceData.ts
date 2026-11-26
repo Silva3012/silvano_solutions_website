@@ -16,4 +16,9 @@ export const audienceData: AudienceItem[] = [
     title: 'Growing Organisations',
     description: 'Build technology foundations that can support increasing customers, data and operational complexity.',
   },
+  {
+    id: 'public-sector',
+    title: 'Public Sector & Development Organisations',
+    description: 'Practical, cost-conscious digital and AI systems for government departments, municipalities and agencies — including solutions that work in South African languages.',
+  },
 ];
