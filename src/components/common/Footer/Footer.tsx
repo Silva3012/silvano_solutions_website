@@ -75,12 +75,13 @@ export const Footer: React.FC = () => {
 
           {/* Contact Direct Callout */}
           <div className="footer-cta-col">
-            <h4 className="footer-heading">Start a Conversation</h4>
+            <h4 className="footer-heading">Free first call</h4>
             <p className="footer-cta-text">
-              Have a practical business problem or system you need to build?
+              A free 30-minute call to talk through your problem. We typically reply within 24
+              business hours.
             </p>
             <Link to="/contact" className="footer-cta-btn">
-              <span>Get in touch</span>
+              <span>Start a conversation</span>
               <ArrowRight size={16} />
             </Link>
           </div>

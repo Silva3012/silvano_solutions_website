@@ -125,6 +125,11 @@
   margin: 0 auto 2rem;
 }
 
+/* A long address must wrap rather than overflow the card on phones. */
+.success-email {
+  overflow-wrap: anywhere;
+}
+
 .success-actions {
   display: flex;
   align-items: center;

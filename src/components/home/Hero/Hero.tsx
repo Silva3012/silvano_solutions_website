@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
 
           <div className="hero-actions">
             <Button to="/contact" variant="primary" size="lg" className="hero-primary-btn">
-              <span>Let's discuss your business</span>
+              <span>Start a conversation</span>
               <ArrowRight size={18} />
             </Button>
             <Button to="/work" variant="secondary" size="lg">

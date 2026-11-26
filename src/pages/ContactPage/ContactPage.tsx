@@ -30,9 +30,9 @@ export const ContactPage: React.FC = () => {
             {/* Lead Generation Form */}
             <Card padding="lg" className="contact-form-card">
               <div className="form-header">
-                <h3 className="form-main-title">Send an Inquiry</h3>
+                <h3 className="form-main-title">Send an enquiry</h3>
                 <p className="form-sub-title">
-                  Fill in your details and we will follow up with practical insights on how to approach your project.
+                  Tell us a little about your problem. We'll reply to arrange a free 30-minute call.
                 </p>
               </div>
               <ContactForm />

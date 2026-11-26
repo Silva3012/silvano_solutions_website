@@ -72,28 +72,33 @@
   border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.side-note-item {
+.side-note-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-4);
+}
+
+.side-note-list {
+  list-style: none;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.side-note-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: var(--color-text-on-dark-muted);
 }
 
 .side-note-icon {
   color: #38bdf8;
   flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
-.side-note-item strong {
-  display: block;
-  font-size: 1rem;
-  color: #ffffff;
-  margin-bottom: 0.35rem;
-}
-
-.side-note-item p {
-  font-size: 0.9rem;
-  color: var(--color-text-on-dark-muted);
-  line-height: 1.5;
+  margin-top: 0.2rem;
 }
 
 @media (max-width: 960px) {

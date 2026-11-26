@@ -18,8 +18,8 @@ export const LanguagesBand: React.FC = () => {
           </h2>
           <p className="languages-body">
             Most AI tools are built for English. We're developing language technology for South
-            African languages, starting with isiXhosa: language data, tokenisation and the
-            groundwork for AI that serves people in the language they speak.
+            African languages, starting with isiXhosa: building the language data and text
+            processing that AI needs to serve people in the language they speak.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export const LanguagesBand: React.FC = () => {
             </div>
             <div className="languages-fact">
               <dt>Work so far</dt>
-              <dd>Language data and tokenisation</dd>
+              <dd>Language data and text processing</dd>
             </div>
           </dl>
 
@@ -47,7 +47,7 @@ export const LanguagesBand: React.FC = () => {
               size="md"
               className="languages-btn"
             >
-              <span>Talk to us</span>
+              <span>Start a conversation</span>
               <ArrowRight size={16} />
             </Button>
           </div>

@@ -57,7 +57,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
       <p className="project-description">{project.description}</p>
 
       <div className="project-capabilities-section">
-        <h4 className="capabilities-label">Demonstrates:</h4>
+        <h4 className="capabilities-label">Skills shown</h4>
         <ul className="capabilities-list">
           {project.demonstrates.map((item, idx) => (
             <li key={idx} className="capability-item">
@@ -71,9 +71,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
       <div className="project-card-honest-note">
         <span className="honest-dot"></span>
         <span className="honest-text">
-          {project.badgeType === 'poc' && 'Proof of concept architecture & functional prototype.'}
-          {project.badgeType === 'nlp' && 'Applied linguistic research & data engineering initiative.'}
-          {project.badgeType === 'demo' && 'Functional demonstration workflow for operations.'}
+          {project.badgeType === 'poc' && 'A working prototype built to prove the approach.'}
+          {project.badgeType === 'nlp' && 'Applied language research and data work, in development.'}
+          {project.badgeType === 'demo' && 'A demonstration of an operations workflow.'}
         </span>
       </div>
     </Card>

@@ -23,7 +23,7 @@ export interface ProjectItem {
   id: string;
   category: string;
   title: string;
-  badge: 'POC' | 'Demonstration / POC' | 'AI / NLP Project';
+  badge: 'Proof of concept' | 'Demonstration' | 'Research project';
   badgeType: 'poc' | 'demo' | 'nlp';
   description: string;
   /** One-line outcome used on the homepage's compact cards. */

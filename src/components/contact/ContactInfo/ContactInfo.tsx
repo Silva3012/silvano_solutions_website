@@ -81,7 +81,7 @@ export const ContactInfo: React.FC = () => {
           </li>
           <li>
             <CheckCircle2 size={16} className="expectation-check" />
-            <span>We schedule a direct, 30-minute discovery conversation.</span>
+            <span>We schedule a free 30-minute discovery call.</span>
           </li>
           <li>
             <CheckCircle2 size={16} className="expectation-check" />

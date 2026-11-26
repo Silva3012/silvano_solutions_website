@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../../common/Button/Button';
-import { ArrowRight, MessageSquare, Mail } from 'lucide-react';
+import { ArrowRight, Mail, Check } from 'lucide-react';
+import { company } from '../../../data/companyData';
 import './FinalCta.css';
 
 export const FinalCta: React.FC = () => {
@@ -21,20 +22,35 @@ export const FinalCta: React.FC = () => {
                 <span>Start a conversation</span>
                 <ArrowRight size={18} />
               </Button>
-              <a href="mailto:info@silvanosolutions.co.za" className="direct-email-link">
-                <Mail size={16} />
-                <span>Or email directly</span>
+              <a href={`mailto:${company.email}`} className="direct-email-link">
+                <Mail size={16} aria-hidden="true" />
+                <span>
+                  or email <span className="nowrap">{company.email}</span>
+                </span>
               </a>
             </div>
           </div>
+
+          {/* What happens next: only promises already made on the Contact page. */}
           <div className="final-cta-side-note">
-            <div className="side-note-item">
-              <MessageSquare size={18} className="side-note-icon" />
-              <div>
-                <strong>No obligations</strong>
-                <p>An honest discussion about technical feasibility and roadmap.</p>
-              </div>
-            </div>
+            <h3 className="side-note-title">What happens next</h3>
+            <ul className="side-note-list">
+              <li>
+                <Check size={16} className="side-note-icon" aria-hidden="true" />
+                <span>
+                  {company.principal.name} reviews your enquiry and replies, typically within 24
+                  business hours.
+                </span>
+              </li>
+              <li>
+                <Check size={16} className="side-note-icon" aria-hidden="true" />
+                <span>Your first 30-minute call is free, with no obligation.</span>
+              </li>
+              <li>
+                <Check size={16} className="side-note-icon" aria-hidden="true" />
+                <span>You get clear recommendations on feasibility and next steps.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
