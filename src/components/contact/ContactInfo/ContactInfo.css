@@ -55,13 +55,13 @@
 .channel-value {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .channel-value:hover {
-  color: var(--color-brand-dark);
+  color: var(--color-accent-hover);
 }
 
 .channel-value-static {

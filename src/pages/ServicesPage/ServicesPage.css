@@ -4,7 +4,7 @@
 
 .services-hero {
   padding-bottom: 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  background: linear-gradient(180deg, var(--color-bg-card) 0%, var(--color-bg-main) 100%);
   border-bottom: 1px solid var(--border-subtle);
 }
 

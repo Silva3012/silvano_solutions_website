@@ -18,13 +18,13 @@
   min-height: 44px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .selected-work-all:hover {
-  color: var(--color-brand-dark);
+  color: var(--color-accent-hover);
 }
 
 .selected-work-grid {

@@ -7,7 +7,7 @@
   background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-primary) 100%);
   border-radius: var(--radius-lg);
   padding: 3.5rem;
-  color: #ffffff;
+  color: var(--color-text-on-dark);
   display: grid;
   grid-template-columns: 1.8fr 1fr;
   gap: 3rem;
@@ -18,7 +18,7 @@
 .final-cta-title {
   font-size: 2.35rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text-on-dark);
   line-height: 1.2;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
@@ -39,23 +39,25 @@
   flex-wrap: wrap;
 }
 
-.final-cta-btn {
-  background-color: #ffffff !important;
-  color: var(--color-brand-dark) !important;
-  border-color: #ffffff !important;
+/* Primary action on a dark surface: the light blue with navy text, as in the languages band. */
+.btn.final-cta-btn {
+  background-color: var(--color-accent-on-dark);
+  color: var(--color-brand-dark);
+  border-color: var(--color-accent-on-dark);
   font-weight: 600;
 }
 
-.final-cta-btn:hover {
-  background-color: #f1f5f9 !important;
-  transform: translateY(-1px);
+.btn.final-cta-btn:hover {
+  background-color: var(--color-text-on-dark);
+  border-color: var(--color-text-on-dark);
+  color: var(--color-brand-dark);
 }
 
 .direct-email-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ffffff;
+  color: var(--color-text-on-dark);
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: underline;
@@ -63,13 +65,13 @@
 }
 
 .direct-email-link:hover {
-  color: #38bdf8;
+  color: var(--color-accent-on-dark);
 }
 
 /* A column beside the main copy, separated by a hairline, not a box inside the card. */
 .final-cta-side-note {
   padding-left: var(--space-6);
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid var(--border-on-dark);
 }
 
 .side-note-title {
@@ -96,7 +98,7 @@
 }
 
 .side-note-icon {
-  color: #38bdf8;
+  color: var(--color-accent-on-dark);
   flex-shrink: 0;
   margin-top: 0.2rem;
 }
@@ -112,7 +114,7 @@
     padding-left: 0;
     padding-top: var(--space-5);
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--border-on-dark);
   }
 }
 

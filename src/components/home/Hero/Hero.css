@@ -1,6 +1,6 @@
 .hero-section {
   padding: 6.5rem 0 5.5rem;
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  background: linear-gradient(180deg, var(--color-bg-card) 0%, var(--color-bg-main) 100%);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -45,7 +45,7 @@
 }
 
 .hero-primary-btn {
-  box-shadow: 0 4px 12px rgba(56, 70, 85, 0.2);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-accent) 22%, transparent); /* follows the accent */
 }
 
 /* Credibility line: facts separated by middle dots on wide screens,

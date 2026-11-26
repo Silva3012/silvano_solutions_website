@@ -28,7 +28,7 @@
 }
 
 .section-header-inverted .section-eyebrow {
-  color: #ffffff;
+  color: var(--color-text-on-dark);
   background-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -40,7 +40,7 @@
 }
 
 .section-header-inverted .section-title {
-  color: #ffffff;
+  color: var(--color-text-on-dark);
 }
 
 .section-description {

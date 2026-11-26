@@ -4,7 +4,7 @@
 
 .work-hero {
   padding-bottom: 2.5rem;
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  background: linear-gradient(180deg, var(--color-bg-card) 0%, var(--color-bg-main) 100%);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -14,27 +14,27 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background-color: #f0f9ff;
-  border: 1px solid #bae6fd;
+  background-color: var(--color-accent-subtle);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
 }
 
 .notice-icon {
-  color: #0284c7;
+  color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
 
 .notice-content strong {
   display: block;
-  color: #0369a1;
+  color: var(--color-accent-hover);
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
 }
 
 .notice-content p {
-  color: #0c4a6e;
+  color: var(--color-text-body);
   font-size: 0.9rem;
   line-height: 1.5;
 }

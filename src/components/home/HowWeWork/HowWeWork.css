@@ -2,12 +2,13 @@
   background-color: var(--color-bg-main);
 }
 
+
 .process-steps {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: var(--space-6);
-  border-top: 2px solid var(--color-brand-primary);
+  border-top: 2px solid var(--color-accent); /* the accent carries the sequence */
 }
 
 .process-step {
@@ -19,7 +20,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   margin-bottom: var(--space-3);
 }
 
@@ -49,6 +50,6 @@
   }
 
   .process-step:first-child {
-    border-top: 2px solid var(--color-brand-primary);
+    border-top: 2px solid var(--color-accent);
   }
 }

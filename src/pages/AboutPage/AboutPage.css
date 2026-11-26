@@ -4,7 +4,7 @@
 
 .about-hero {
   padding-bottom: 2.5rem;
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-main) 100%);
+  background: linear-gradient(180deg, var(--color-bg-card) 0%, var(--color-bg-main) 100%);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .ai-philosophy-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 3rem;
@@ -186,7 +186,7 @@
 }
 
 .principle-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   position: relative;
 }
 

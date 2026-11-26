@@ -41,7 +41,7 @@
 }
 
 .privacy-inner a {
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

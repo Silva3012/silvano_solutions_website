@@ -65,7 +65,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-accent);
   border-radius: 1px;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .mobile-nav-drawer {
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   padding: 2rem 1.5rem;
   box-shadow: var(--shadow-lg);
   display: flex;
@@ -143,7 +143,7 @@
 }
 
 .mobile-nav-link-active {
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   font-weight: 600;
 }
 

@@ -17,7 +17,7 @@
 }
 
 .required-star {
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 .optional-text {
@@ -33,7 +33,7 @@
   padding: 0.75rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-default);
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   color: var(--color-text-heading);
   font-size: 0.95rem;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -75,9 +75,9 @@
 }
 
 .form-alert-error {
-  background-color: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
+  background-color: var(--color-error-subtle);
+  color: var(--color-error);
+  border: 1px solid var(--color-error-border);
 }
 
 .form-privacy-note {
@@ -88,7 +88,7 @@
 }
 
 .form-privacy-note a {
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -97,16 +97,16 @@
 .form-success-card {
   text-align: center;
   padding: 3rem 2rem;
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   border-radius: var(--radius-md);
-  border: 1px solid #bbf7d0;
+  border: 1px solid var(--color-success-border);
 }
 
 .success-icon-wrap {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: #f0fdf4;
+  background-color: var(--color-success-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,7 +114,7 @@
 }
 
 .success-icon {
-  color: #16a34a;
+  color: var(--color-success);
 }
 
 .success-title {
@@ -147,7 +147,7 @@
 
 .direct-mail-fallback {
   font-size: 0.875rem;
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   font-weight: 500;
 }

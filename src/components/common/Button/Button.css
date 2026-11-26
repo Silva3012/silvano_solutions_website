@@ -42,21 +42,23 @@
 }
 
 /* Variants */
+/* Primary action = the accent. Secondary and outline stay slate so the
+   primary action is always the one coloured button in view. */
 .btn-primary {
-  background-color: var(--color-brand-primary);
-  color: #ffffff;
-  border: 1px solid var(--color-brand-primary);
+  background-color: var(--color-accent);
+  color: var(--color-text-on-dark);
+  border: 1px solid var(--color-accent);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--color-brand-dark);
-  border-color: var(--color-brand-dark);
-  color: #ffffff;
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-text-on-dark);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   color: var(--color-brand-primary);
   border: 1px solid var(--border-default);
 }

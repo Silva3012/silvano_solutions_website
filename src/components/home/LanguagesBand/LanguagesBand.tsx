@@ -25,7 +25,7 @@ export const LanguagesBand: React.FC = () => {
 
         <div className="languages-aside">
           <dl className="languages-facts">
-            <div className="languages-fact">
+            <div className="languages-fact languages-fact-status">
               <dt>Status</dt>
               <dd>In development</dd>
             </div>
