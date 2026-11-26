@@ -11,6 +11,14 @@
   text-decoration: none;
 }
 
+/* On narrow phones long labels wrap instead of pushing past the screen edge. */
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;

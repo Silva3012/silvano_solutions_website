@@ -8,7 +8,6 @@ import './ServicesPage.css';
 export const ServicesPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Services — Silvano Solutions';
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -16,6 +15,7 @@ export const ServicesPage: React.FC = () => {
       <section className="section services-hero">
         <div className="container">
           <SectionHeader
+            as="h1"
             eyebrow="Our Services"
             title="Practical capabilities engineered for business problems."
             description="We partner with businesses to build custom software, implement pragmatic AI, integrate systems, and establish technical direction that supports growth."

@@ -39,12 +39,13 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* A clearly visible focus state (the old 12% ring was barely perceptible). */
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  outline: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
   border-color: var(--color-brand-primary);
-  box-shadow: 0 0 0 3px rgba(56, 70, 85, 0.12);
 }
 
 .form-input:disabled,
@@ -84,6 +85,12 @@
   color: var(--color-text-muted);
   text-align: center;
   margin-top: 0.25rem;
+}
+
+.form-privacy-note a {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Success Card */

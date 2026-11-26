@@ -40,10 +40,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
   }
 
   return (
-    <Card padding="lg" hoverable className="project-card">
+    <Card padding="lg" className="project-card">
       <div className="project-card-top">
         <div className="project-category-meta">
-          <span className="project-category-icon">
+          <span className="project-category-icon" aria-hidden="true">
             {getCategoryIcon(project.category)}
           </span>
           <span className="project-category-name">{project.category}</span>
@@ -53,15 +53,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
         </Badge>
       </div>
 
-      <h3 className="project-title">{project.title}</h3>
+      {/* On the Work page these cards sit directly under the page h1. */}
+      <h2 className="project-title">{project.title}</h2>
       <p className="project-description">{project.description}</p>
 
       <div className="project-capabilities-section">
-        <h4 className="capabilities-label">Skills shown</h4>
+        <h3 className="capabilities-label">Skills shown</h3>
         <ul className="capabilities-list">
           {project.demonstrates.map((item, idx) => (
             <li key={idx} className="capability-item">
-              <CheckCircle size={14} className="capability-check" />
+              <CheckCircle size={14} className="capability-check" aria-hidden="true" />
               <span>{item}</span>
             </li>
           ))}

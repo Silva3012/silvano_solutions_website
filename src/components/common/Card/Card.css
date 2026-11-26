@@ -30,3 +30,10 @@
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
+
+/* Large cards give back space on phones so content (and buttons) fit. */
+@media (max-width: 600px) {
+  .card-pad-lg {
+    padding: var(--space-5);
+  }
+}

@@ -14,7 +14,6 @@ import './AboutPage.css';
 export const AboutPage: React.FC = () => {
   useEffect(() => {
     document.title = 'About — Silvano Solutions';
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -23,6 +22,7 @@ export const AboutPage: React.FC = () => {
       <section className="section about-hero">
         <div className="container">
           <SectionHeader
+            as="h1"
             eyebrow="About Silvano Solutions"
             title="Why does Silvano Solutions exist and how does it think?"
             description="We are a South African technology consultancy founded on a simple premise: technology should solve a business problem — not create another one."
@@ -57,7 +57,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <Card padding="lg" className="narrative-quote-card">
-              <div className="quote-mark">“</div>
+              <div className="quote-mark" aria-hidden="true">“</div>
               <blockquote className="quote-text">
                 Technology should solve a business problem — not create another one.
               </blockquote>
@@ -110,7 +110,7 @@ export const AboutPage: React.FC = () => {
       <section className="section about-ai-section">
         <div className="container">
           <div className="ai-philosophy-card">
-            <div className="ai-icon-box">
+            <div className="ai-icon-box" aria-hidden="true">
               <Sparkles size={28} />
             </div>
             <div className="ai-content">
@@ -142,7 +142,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid-3 principles-grid">
             <Card padding="md" className="principle-card">
-              <div className="principle-number">01</div>
+              <div className="principle-number" aria-hidden="true">01</div>
               <h3 className="principle-title">Clarity Before Code</h3>
               <p className="principle-desc">
                 We diagnose before we prescribe. We will never start building until we have verified
@@ -151,7 +151,7 @@ export const AboutPage: React.FC = () => {
             </Card>
 
             <Card padding="md" className="principle-card">
-              <div className="principle-number">02</div>
+              <div className="principle-number" aria-hidden="true">02</div>
               <h3 className="principle-title">Right-Sized Systems</h3>
               <p className="principle-desc">
                 We build what is necessary for your current stage and next milestone. We avoid bloated
@@ -160,7 +160,7 @@ export const AboutPage: React.FC = () => {
             </Card>
 
             <Card padding="md" className="principle-card">
-              <div className="principle-number">03</div>
+              <div className="principle-number" aria-hidden="true">03</div>
               <h3 className="principle-title">Long-Term Maintainability</h3>
               <p className="principle-desc">
                 We deliver clean codebases, standard conventions, and transparent documentation so your

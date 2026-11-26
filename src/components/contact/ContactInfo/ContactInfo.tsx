@@ -7,7 +7,7 @@ export const ContactInfo: React.FC = () => {
   return (
     <div className="contact-info-panel">
       <div className="contact-info-block">
-        <h3 className="contact-info-heading">Direct Contact</h3>
+        <h2 className="contact-info-heading">Direct contact</h2>
         <p className="contact-info-sub">
           Reach out directly to start a conversation regarding your project or business technology needs.
         </p>
@@ -72,7 +72,7 @@ export const ContactInfo: React.FC = () => {
       <div className="contact-expectations-box">
         <div className="expectations-header">
           <ShieldCheck size={20} className="expectations-icon" />
-          <h4 className="expectations-title">What happens next?</h4>
+          <h3 className="expectations-title">What happens next?</h3>
         </div>
         <ul className="expectations-list">
           <li>

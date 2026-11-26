@@ -8,6 +8,8 @@ interface SectionHeaderProps {
   align?: 'left' | 'center';
   inverted?: boolean;
   className?: string;
+  /** Use 'h1' when this header is the page's main title. */
+  as?: 'h1' | 'h2';
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -17,6 +19,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   align = 'center',
   inverted = false,
   className = '',
+  as: Heading = 'h2',
 }) => {
   return (
     <div
@@ -25,7 +28,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       } ${className}`.trim()}
     >
       {eyebrow && <span className="section-eyebrow">{eyebrow}</span>}
-      <h2 className="section-title">{title}</h2>
+      <Heading className="section-title">{title}</Heading>
       {description && <p className="section-description">{description}</p>}
     </div>
   );

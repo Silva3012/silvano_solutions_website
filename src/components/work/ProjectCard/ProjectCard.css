@@ -57,7 +57,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-text-muted);
+  color: var(--color-text-body); /* muted grey was 4.3:1 on this tinted panel */
   margin-bottom: 0.75rem;
 }
 

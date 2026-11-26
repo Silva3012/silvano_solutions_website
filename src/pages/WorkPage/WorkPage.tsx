@@ -9,7 +9,6 @@ import './WorkPage.css';
 export const WorkPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Selected Work & Prototypes — Silvano Solutions';
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -17,6 +16,7 @@ export const WorkPage: React.FC = () => {
       <section className="section work-hero">
         <div className="container">
           <SectionHeader
+            as="h1"
             eyebrow="Our Portfolio"
             title="Selected work and functional proofs of concept."
             description="We build working prototypes, internal demonstrations, and language systems to validate technical architectures before full rollout."

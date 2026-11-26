@@ -14,8 +14,8 @@ export const PhilosophyCard: React.FC<PhilosophyCardProps> = ({
   description,
 }) => {
   return (
-    <Card padding="md" hoverable className="philosophy-card">
-      <div className="philosophy-icon-wrap">{icon}</div>
+    <Card padding="md" className="philosophy-card">
+      <div className="philosophy-icon-wrap" aria-hidden="true">{icon}</div>
       <h3 className="philosophy-card-title">{title}</h3>
       <p className="philosophy-card-desc">{description}</p>
     </Card>

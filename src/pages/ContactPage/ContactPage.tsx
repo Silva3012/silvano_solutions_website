@@ -8,7 +8,6 @@ import './ContactPage.css';
 export const ContactPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Contact — Silvano Solutions';
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -16,6 +15,7 @@ export const ContactPage: React.FC = () => {
       <section className="section contact-hero">
         <div className="container">
           <SectionHeader
+            as="h1"
             eyebrow="Get In Touch"
             title="Let's discuss what you are trying to build or automate."
             description="Whether you have an immediate operational bottleneck, need a proof of concept developed, or want to audit your existing tools, we are ready to listen."
@@ -30,7 +30,7 @@ export const ContactPage: React.FC = () => {
             {/* Lead Generation Form */}
             <Card padding="lg" className="contact-form-card">
               <div className="form-header">
-                <h3 className="form-main-title">Send an enquiry</h3>
+                <h2 className="form-main-title">Send an enquiry</h2>
                 <p className="form-sub-title">
                   Tell us a little about your problem. We'll reply to arrange a free 30-minute call.
                 </p>

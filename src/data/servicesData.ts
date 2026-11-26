@@ -30,7 +30,7 @@ export const servicesData: ServiceItem[] = [
     ],
     whatWeDeliver: [
       'Systems that read documents and pull out the information you need',
-      'Language AI for South African languages (natural language processing)',
+      'Language AI for South African languages (in development)',
       'Assistants that find answers in your internal documents',
       'Automatic sorting and routing of incoming requests',
     ],

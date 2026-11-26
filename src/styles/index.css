@@ -126,6 +126,50 @@ p {
   }
 }
 
+/* Keyboard focus: one visible ring everywhere (mouse clicks don't show it). */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* On the dark surfaces the accent blue is too close to the background. */
+.site-footer :focus-visible,
+.languages-band :focus-visible,
+.final-cta-card :focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--color-text-on-dark);
+}
+
+/* The skip link targets <main>; it needs no ring of its own. */
+main:focus {
+  outline: none;
+}
+
+/* Anchor targets land below the 72px sticky header instead of under it. */
+[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Respect a system "reduce motion" setting: no smooth scroll, no hover lifts. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .card-hoverable:hover,
+  .footer-cta-btn:hover {
+    transform: none !important;
+  }
+}
+
 /* Keep short identifiers (registration numbers, etc.) on one line. */
 .nowrap {
   white-space: nowrap;

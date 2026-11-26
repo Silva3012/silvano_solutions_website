@@ -12,27 +12,28 @@ interface ServiceDetailCardProps {
 
 export const ServiceDetailCard: React.FC<ServiceDetailCardProps> = ({ service, index }) => {
   return (
-    <Card padding="lg" className="service-detail-card">
+    // The id makes each service linkable, e.g. /services#ai-solutions (used by the footer).
+    <Card padding="lg" className="service-detail-card" id={service.id}>
       <div className="service-detail-header">
-        <span className="service-detail-index">0{index + 1}</span>
-        <h3 className="service-detail-title">{service.title}</h3>
+        <span className="service-detail-index" aria-hidden="true">0{index + 1}</span>
+        <h2 className="service-detail-title">{service.title}</h2>
       </div>
 
       <div className="service-detail-description">
-        <h4 className="detail-subheading">What it is</h4>
+        <h3 className="detail-subheading">What it is</h3>
         <p className="detail-body-text">{service.detailedDescription}</p>
       </div>
 
       <div className="service-detail-columns">
         <div className="detail-col">
-          <h4 className="detail-col-heading">
-            <AlertCircle size={16} className="col-icon col-icon-problem" />
+          <h3 className="detail-col-heading">
+            <AlertCircle size={16} className="col-icon col-icon-problem" aria-hidden="true" />
             <span>Typical Business Problems Addressed</span>
-          </h4>
+          </h3>
           <ul className="detail-list">
             {service.typicalProblems.map((problem, i) => (
               <li key={i} className="detail-list-item">
-                <span className="bullet-problem">•</span>
+                <span className="bullet-problem" aria-hidden="true">•</span>
                 <span>{problem}</span>
               </li>
             ))}
@@ -40,14 +41,14 @@ export const ServiceDetailCard: React.FC<ServiceDetailCardProps> = ({ service, i
         </div>
 
         <div className="detail-col">
-          <h4 className="detail-col-heading">
-            <CheckCircle2 size={16} className="col-icon col-icon-deliverable" />
+          <h3 className="detail-col-heading">
+            <CheckCircle2 size={16} className="col-icon col-icon-deliverable" aria-hidden="true" />
             <span>What We Can Deliver</span>
-          </h4>
+          </h3>
           <ul className="detail-list">
             {service.whatWeDeliver.map((deliverable, i) => (
               <li key={i} className="detail-list-item">
-                <span className="bullet-deliverable">✓</span>
+                <span className="bullet-deliverable" aria-hidden="true">✓</span>
                 <span>{deliverable}</span>
               </li>
             ))}

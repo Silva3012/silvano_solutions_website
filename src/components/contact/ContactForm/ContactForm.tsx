@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import type { ContactFormData } from '../../../types';
 import { Button } from '../../common/Button/Button';
 import { CheckCircle, Send, AlertCircle } from 'lucide-react';
 import { company } from '../../../data/companyData';
+import { servicesData } from '../../../data/servicesData';
 import './ContactForm.css';
 
 interface ContactFormProps {
@@ -12,14 +13,19 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   const [searchParams] = useSearchParams();
-  const preselectedService = searchParams.get('service') || '';
 
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    company: '',
-    serviceInterest: '',
-    message: '',
+  // Preselect the service from ?service=<id> (e.g. from a "Discuss …" button),
+  // ignoring values that aren't one of the form's options.
+  const [formData, setFormData] = useState<ContactFormData>(() => {
+    const requested = searchParams.get('service') ?? '';
+    const known = [...servicesData.map((s) => s.id), 'other'];
+    return {
+      name: '',
+      email: '',
+      company: '',
+      serviceInterest: known.includes(requested) ? requested : '',
+      message: '',
+    };
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,15 +37,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   useEffect(() => {
     if (submitted) successHeadingRef.current?.focus();
   }, [submitted]);
-
-  useEffect(() => {
-    if (preselectedService) {
-      setFormData((prev) => ({
-        ...prev,
-        serviceInterest: preselectedService,
-      }));
-    }
-  }, [preselectedService]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -67,10 +64,18 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
       return;
     }
 
+    // Guard against a double click sending the enquiry twice.
+    if (isSubmitting) return;
     setIsSubmitting(true);
 
+    // Give up after 15 seconds so a stalled connection shows the error
+    // (with the email fallback) instead of spinning forever.
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
+
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@silvanosolutions.co.za', {
+      const response = await fetch(`https://formsubmit.co/ajax/${company.email}`, {
+        signal: controller.signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,6 +106,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         `Your message didn't send. Please try again, or email us at ${company.email}.`
       );
     } finally {
+      window.clearTimeout(timeout);
       setIsSubmitting(false);
     }
   };
@@ -157,11 +163,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
       <div className="form-group">
         <label htmlFor="name" className="form-label">
-          Your Name <span className="required-star">*</span>
+          Your Name <span className="required-star" aria-hidden="true">*</span>
         </label>
         <input
           type="text"
           id="name"
+          autoComplete="name"
+          maxLength={100}
           name="name"
           required
           value={formData.name}
@@ -174,11 +182,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
       <div className="form-group">
         <label htmlFor="email" className="form-label">
-          Email <span className="required-star">*</span>
+          Email <span className="required-star" aria-hidden="true">*</span>
         </label>
         <input
           type="email"
           id="email"
+          autoComplete="email"
+          maxLength={254}
           name="email"
           required
           value={formData.email}
@@ -196,6 +206,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         <input
           type="text"
           id="company"
+          autoComplete="organization"
+          maxLength={120}
           name="company"
           value={formData.company}
           onChange={handleChange}
@@ -233,6 +245,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         </label>
         <textarea
           id="message"
+          maxLength={5000}
           name="message"
           rows={4}
           value={formData.message}
@@ -255,7 +268,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
       </Button>
 
       <p className="form-privacy-note">
-        Direct founder review. No spam, no sales pressure.
+        We'll use your details only to respond to your enquiry. See our{' '}
+        <Link to="/privacy">privacy notice</Link>. No spam, no sales pressure.
       </p>
     </form>
   );
