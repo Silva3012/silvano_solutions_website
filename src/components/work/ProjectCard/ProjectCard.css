@@ -82,6 +82,11 @@
   flex-shrink: 0;
 }
 
+/* Compact homepage variant: the summary is the last element, so no trailing gap. */
+.project-card-compact .project-description {
+  margin-bottom: 0;
+}
+
 .project-card-honest-note {
   display: flex;
   align-items: center;

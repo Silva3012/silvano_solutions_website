@@ -9,7 +9,6 @@ export const FinalCta: React.FC = () => {
       <div className="container">
         <div className="final-cta-card">
           <div className="final-cta-content">
-            <span className="final-cta-tag">Direct Collaboration</span>
             <h2 className="final-cta-title">
               Have a business problem that technology could solve?
             </h2>

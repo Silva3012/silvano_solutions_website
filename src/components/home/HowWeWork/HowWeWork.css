@@ -3,6 +3,7 @@
 }
 
 .process-grid {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
@@ -12,7 +13,7 @@
 .process-card {
   display: flex;
   flex-direction: column;
-  position: relative;
+  height: 100%;
   background-color: #ffffff;
 }
 
@@ -31,7 +32,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-brand-primary);
-  font-family: monospace;
+  font-variant-numeric: tabular-nums;
 }
 
 .process-title {
@@ -47,13 +48,7 @@
   color: var(--color-text-body);
 }
 
-@media (max-width: 960px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .process-grid {
     grid-template-columns: 1fr;
   }

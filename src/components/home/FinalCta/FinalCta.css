@@ -15,19 +15,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-.final-cta-tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #38bdf8;
-  background-color: rgba(56, 189, 248, 0.12);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1.25rem;
-}
-
 .final-cta-title {
   font-size: 2.35rem;
   font-weight: 800;

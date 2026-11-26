@@ -7,9 +7,11 @@ import './ProjectCard.css';
 
 interface ProjectCardProps {
   project: ProjectItem;
+  /** Homepage teaser: badge, title and one-line summary only. */
+  compact?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = false }) => {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Business Application':
@@ -22,6 +24,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         return <Layers size={18} />;
     }
   };
+
+  if (compact) {
+    return (
+      <Card padding="md" className="project-card project-card-compact">
+        <div className="project-card-top">
+          <Badge variant={project.badgeType} size="md">
+            {project.badge}
+          </Badge>
+        </div>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.summary}</p>
+      </Card>
+    );
+  }
 
   return (
     <Card padding="lg" hoverable className="project-card">

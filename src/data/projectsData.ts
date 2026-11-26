@@ -8,6 +8,7 @@ export const projectsData: ProjectItem[] = [
     badge: 'POC',
     badgeType: 'poc',
     description: 'A custom digital platform designed around the operational needs of a growing hair business, addressing order tracking, inventory visibility, and client communication.',
+    summary: 'Order tracking, inventory visibility and client communication in one platform for a growing hair business.',
     demonstrates: [
       'Full-stack development',
       'Business analysis',
@@ -22,6 +23,7 @@ export const projectsData: ProjectItem[] = [
     badge: 'AI / NLP Project',
     badgeType: 'nlp',
     description: 'A natural language processing initiative involving isiXhosa language data, focusing on computational linguistics, tokenization, and resource development for African languages.',
+    summary: 'isiXhosa language data, tokenisation and language resources: groundwork for AI that works in South African languages.',
     demonstrates: [
       'AI / ML pipelines',
       'Natural Language Processing (NLP)',
@@ -36,6 +38,7 @@ export const projectsData: ProjectItem[] = [
     badge: 'Demonstration / POC',
     badgeType: 'demo',
     description: 'A working demonstration showing how repetitive administrative workflows can be digitised, integrated, and automated to eliminate manual data entry errors.',
+    summary: 'Repetitive admin workflows digitised and connected, so data moves automatically instead of being typed in twice.',
     demonstrates: [
       'Administrative digitisation',
       'API & webhook integration',

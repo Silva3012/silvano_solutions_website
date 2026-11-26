@@ -11,20 +11,19 @@ export const SelectedWork: React.FC = () => {
     <section className="section selected-work-section" id="work">
       <div className="container">
         <SectionHeader
-          eyebrow="Portfolio"
           title="Selected work"
-          description="Proof of concept prototypes and functional demonstrations showing how we design architectures, automate workflows, and apply modern technology."
+          description="Working prototypes and demonstrations, labelled honestly for what they are."
         />
 
         <div className="grid-3 selected-work-grid">
           {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} compact />
           ))}
         </div>
 
         <div className="selected-work-cta">
           <Button to="/work" variant="outline" size="md">
-            <span>Explore all projects & technical details</span>
+            <span>See all projects</span>
             <ArrowRight size={16} />
           </Button>
         </div>

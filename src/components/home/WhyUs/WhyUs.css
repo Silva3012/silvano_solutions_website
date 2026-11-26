@@ -7,19 +7,6 @@
   margin-bottom: 3.5rem;
 }
 
-.why-us-eyebrow {
-  display: inline-block;
-  font-size: 0.825rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-brand-primary);
-  background-color: var(--color-brand-surface);
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1rem;
-}
-
 .why-us-title {
   font-size: 2.25rem;
   line-height: 1.25;

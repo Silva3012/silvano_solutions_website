@@ -8,7 +8,6 @@ export const WhyUs: React.FC = () => {
     <section className="section section-alt why-us-section" id="why-us">
       <div className="container">
         <div className="why-us-intro">
-          <span className="why-us-eyebrow">The Silvano Solutions Approach</span>
           <h2 className="why-us-title">
             Technology should fit the business — not the other way around.
           </h2>

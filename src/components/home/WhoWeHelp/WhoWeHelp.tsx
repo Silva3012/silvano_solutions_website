@@ -17,7 +17,6 @@ export const WhoWeHelp: React.FC = () => {
     <section className="section audience-section" id="audience">
       <div className="container">
         <SectionHeader
-          eyebrow="Target Audience"
           title="Built for organisations that are growing"
           description="Technology should scale appropriately to where your company is right now, solving today's bottlenecks without unnecessary overhead."
         />

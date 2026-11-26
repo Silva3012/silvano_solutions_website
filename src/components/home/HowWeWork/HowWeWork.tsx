@@ -9,22 +9,23 @@ export const HowWeWork: React.FC = () => {
     <section className="section section-alt how-we-work-section" id="process">
       <div className="container">
         <SectionHeader
-          eyebrow="Our Process"
           title="From business problem to working solution."
           description="A straightforward, disciplined approach focused on understanding what you actually need before writing code."
         />
 
-        <div className="process-grid">
+        <ol className="process-grid">
           {processData.map((stage) => (
-            <Card key={stage.step} padding="md" className="process-card">
-              <div className="process-step-indicator">
-                <span className="process-number">{stage.step}</span>
-              </div>
-              <h3 className="process-title">{stage.title}</h3>
-              <p className="process-desc">{stage.description}</p>
-            </Card>
+            <li key={stage.step}>
+              <Card padding="md" className="process-card">
+                <div className="process-step-indicator" aria-hidden="true">
+                  <span className="process-number">{stage.step}</span>
+                </div>
+                <h3 className="process-title">{stage.title}</h3>
+                <p className="process-desc">{stage.description}</p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
