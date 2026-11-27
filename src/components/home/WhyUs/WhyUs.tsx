@@ -1,6 +1,7 @@
 import React from 'react';
 import { Network, Code, Users, Lightbulb } from 'lucide-react';
 import { company } from '../../../data/companyData';
+import { PrincipalLink } from '../../common/PrincipalLink/PrincipalLink';
 import './WhyUs.css';
 
 const strengths = [
@@ -37,7 +38,7 @@ export const WhyUs: React.FC = () => {
         <div className="why-us-intro">
           <h2 className="why-us-title">Who you'll work with</h2>
           <p className="why-us-lead">
-            {company.tradingName} is led by {company.principal.name}, {company.principal.role}, and
+            {company.tradingName} is led by <PrincipalLink />, {company.principal.role}, and
             combines software engineering, IT infrastructure, business understanding and practical
             problem solving to build technology that works in the real world.
           </p>

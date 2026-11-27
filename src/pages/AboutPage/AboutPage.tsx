@@ -3,6 +3,7 @@ import { SectionHeader } from '../../components/common/SectionHeader/SectionHead
 import { PhilosophyCard } from '../../components/about/PhilosophyCard/PhilosophyCard';
 import { Card } from '../../components/common/Card/Card';
 import { FinalCta } from '../../components/home/FinalCta/FinalCta';
+import { PrincipalLink } from '../../components/common/PrincipalLink/PrincipalLink';
 import {
   Sparkles,
   Network,
@@ -39,7 +40,7 @@ export const AboutPage: React.FC = () => {
                 Practical systems for businesses that value outcomes over hype.
               </h2>
               <p className="narrative-p">
-                Silvano Solutions was founded by <strong>Ntsika Silvano</strong> to bridge the gap
+                Silvano Solutions was founded by <strong><PrincipalLink /></strong> to bridge the gap
                 between business operations and modern technology.
               </p>
               <p className="narrative-p">

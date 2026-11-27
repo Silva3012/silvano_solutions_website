@@ -1,0 +1,14 @@
+/* An inline name link: keeps the surrounding text colour and weight,
+   with the accent carried by the underline (accent = action). */
+.principal-link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.principal-link:hover {
+  color: var(--color-accent);
+}
