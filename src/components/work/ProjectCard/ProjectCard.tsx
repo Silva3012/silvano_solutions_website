@@ -112,12 +112,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
         <h2 className="project-title">{project.title}</h2>
         <p className="project-description">{project.description}</p>
 
-        <div className="project-capabilities-section">
-          <h3 className="capabilities-label">Skills shown</h3>
-          <ul className="capabilities-list">
-            {project.demonstrates.map((item) => (
-              <li key={item} className="capability-item">
-                <CheckCircle size={14} className="capability-check" aria-hidden="true" />
+        {/* What the project does for a business, not a list of developer skills. */}
+        <div className="project-outcomes-section">
+          <h3 className="outcomes-label">What it does</h3>
+          <ul className="outcomes-list">
+            {project.outcomes.map((item) => (
+              <li key={item} className="outcome-item">
+                <CheckCircle size={14} className="outcome-check" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
