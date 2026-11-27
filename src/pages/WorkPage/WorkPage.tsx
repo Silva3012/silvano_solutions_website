@@ -8,8 +8,7 @@ import './WorkPage.css';
 
 export const WorkPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Selected Work & POCs — Silvano Solutions';
-    window.scrollTo(0, 0);
+    document.title = 'Selected Work & Prototypes — Silvano Solutions';
   }, []);
 
   return (
@@ -17,7 +16,7 @@ export const WorkPage: React.FC = () => {
       <section className="section work-hero">
         <div className="container">
           <SectionHeader
-            eyebrow="Our Portfolio"
+            as="h1"
             title="Selected work and functional proofs of concept."
             description="We build working prototypes, internal demonstrations, and language systems to validate technical architectures before full rollout."
             align="center"
@@ -29,7 +28,8 @@ export const WorkPage: React.FC = () => {
               <strong>Transparent Portfolio Policy</strong>
               <p>
                 Silvano Solutions is an establishing technology firm. We explicitly distinguish
-                between commercial projects, proofs of concept (POC), and technical demonstrations.
+                between commercial projects, proofs of concept (working prototypes), and technical
+                demonstrations.
                 We do not invent client statistics or claim deployments that do not exist.
               </p>
             </div>

@@ -5,10 +5,18 @@
   gap: 0.5rem;
   font-weight: 500;
   border-radius: var(--radius-sm);
-  transition: all 0.15s ease-in-out;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
+}
+
+/* On narrow phones long labels wrap instead of pushing past the screen edge. */
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .btn:disabled {
@@ -19,36 +27,38 @@
 /* Sizes */
 .btn-sm {
   padding: 0.4rem 0.85rem;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
 }
 
 .btn-md {
   padding: 0.65rem 1.25rem;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
 .btn-lg {
   padding: 0.85rem 1.75rem;
-  font-size: 1.05rem;
+  font-size: var(--text-base);
   border-radius: var(--radius-md);
 }
 
 /* Variants */
+/* Primary action = the accent. Secondary and outline stay slate so the
+   primary action is always the one coloured button in view. */
 .btn-primary {
-  background-color: var(--color-brand-primary);
-  color: #ffffff;
-  border: 1px solid var(--color-brand-primary);
+  background-color: var(--color-accent);
+  color: var(--color-text-on-dark);
+  border: 1px solid var(--color-accent);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--color-brand-dark);
-  border-color: var(--color-brand-dark);
-  color: #ffffff;
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-text-on-dark);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   color: var(--color-brand-primary);
   border: 1px solid var(--border-default);
 }

@@ -8,7 +8,6 @@ import './ServicesPage.css';
 export const ServicesPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Services — Silvano Solutions';
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -16,7 +15,7 @@ export const ServicesPage: React.FC = () => {
       <section className="section services-hero">
         <div className="container">
           <SectionHeader
-            eyebrow="Our Services"
+            as="h1"
             title="Practical capabilities engineered for business problems."
             description="We partner with businesses to build custom software, implement pragmatic AI, integrate systems, and establish technical direction that supports growth."
             align="center"
@@ -27,12 +26,8 @@ export const ServicesPage: React.FC = () => {
       <section className="section services-list-section">
         <div className="container">
           <div className="services-detail-list">
-            {servicesData.map((service, index) => (
-              <ServiceDetailCard
-                key={service.id}
-                service={service}
-                index={index}
-              />
+            {servicesData.map((service) => (
+              <ServiceDetailCard key={service.id} service={service} />
             ))}
           </div>
         </div>

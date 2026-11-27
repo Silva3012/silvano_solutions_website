@@ -1,60 +1,55 @@
 .how-we-work-section {
-  position: relative;
+  background-color: var(--color-bg-main);
 }
 
-.process-grid {
+
+.process-steps {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  margin-top: 1rem;
+  column-gap: var(--space-6);
+  border-top: 2px solid var(--color-accent); /* the accent carries the sequence */
 }
 
-.process-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: #ffffff;
-}
-
-.process-step-indicator {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-brand-surface);
-  margin-bottom: 1.25rem;
+.process-step {
+  padding-top: var(--space-5);
 }
 
 .process-number {
-  font-size: 0.95rem;
+  display: block;
+  font-size: var(--text-base);
   font-weight: 700;
-  color: var(--color-brand-primary);
-  font-family: monospace;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
 }
 
 .process-title {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .process-desc {
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-text-body);
+  max-width: 40ch;
 }
 
-@media (max-width: 960px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .process-grid {
+@media (max-width: 768px) {
+  .process-steps {
     grid-template-columns: 1fr;
+    border-top: none;
+  }
+
+  .process-step {
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--border-default);
+  }
+
+  .process-step:first-child {
+    border-top: 2px solid var(--color-accent);
   }
 }

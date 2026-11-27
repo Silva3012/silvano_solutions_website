@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SectionHeader } from '../../common/SectionHeader/SectionHeader';
 import { ProjectCard } from '../../work/ProjectCard/ProjectCard';
 import { Button } from '../../common/Button/Button';
@@ -8,23 +9,32 @@ import './SelectedWork.css';
 
 export const SelectedWork: React.FC = () => {
   return (
-    <section className="section selected-work-section" id="work">
+    <section className="section section-alt selected-work-section" id="work">
       <div className="container">
-        <SectionHeader
-          eyebrow="Portfolio"
-          title="Selected work"
-          description="Proof of concept prototypes and functional demonstrations showing how we design architectures, automate workflows, and apply modern technology."
-        />
+        <div className="selected-work-head">
+          <SectionHeader
+            title="Selected work"
+            description="Working prototypes and demonstrations, labelled honestly for what they are."
+            align="left"
+            className="selected-work-header"
+          />
+          <Link to="/work" className="selected-work-all">
+            <span>See all projects</span>
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
 
-        <div className="grid-3 selected-work-grid">
+        <div className="selected-work-grid">
           {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} compact />
           ))}
         </div>
 
+        {/* Mid-page call to action, so visitors don't have to reach the end of the page. */}
         <div className="selected-work-cta">
-          <Button to="/work" variant="outline" size="md">
-            <span>Explore all projects & technical details</span>
+          <p className="selected-work-cta-text">Have a similar problem in your organisation?</p>
+          <Button to="/contact" variant="primary" size="md" className="selected-work-cta-btn">
+            <span>Start a conversation</span>
             <ArrowRight size={16} />
           </Button>
         </div>

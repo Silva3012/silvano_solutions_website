@@ -1,43 +1,62 @@
 import React from 'react';
-import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Clock, ShieldCheck, CheckCircle2, Building2 } from 'lucide-react';
+import { company, companyCredentials } from '../../../data/companyData';
 import './ContactInfo.css';
 
 export const ContactInfo: React.FC = () => {
   return (
     <div className="contact-info-panel">
       <div className="contact-info-block">
-        <h3 className="contact-info-heading">Direct Contact</h3>
+        <h2 className="contact-info-heading">Direct contact</h2>
         <p className="contact-info-sub">
           Reach out directly to start a conversation regarding your project or business technology needs.
         </p>
 
         <div className="contact-channel-list">
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <Mail size={18} />
             </div>
             <div>
               <span className="channel-label">Email</span>
-              <a href="mailto:info@silvanosolutions.co.za" className="channel-value">
-                info@silvanosolutions.co.za
+              <a href={`mailto:${company.email}`} className="channel-value">
+                {company.email}
               </a>
             </div>
           </div>
 
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <MapPin size={18} />
             </div>
             <div>
               <span className="channel-label">Base</span>
               <span className="channel-value-static">
-                South Africa • Serving clients locally and abroad
+                {company.city}, {company.country} · Serving clients locally and abroad
               </span>
             </div>
           </div>
 
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
+              <Building2 size={18} />
+            </div>
+            <div>
+              <span className="channel-label">Company</span>
+              <span className="channel-value-static">{company.legalName}</span>
+              <span className="channel-value-static channel-value-block">
+                Reg. {company.registrationNumber}
+              </span>
+              {companyCredentials().map((item) => (
+                <span key={item} className="channel-value-static channel-value-block">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="contact-channel-item">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <Clock size={18} />
             </div>
             <div>
@@ -53,7 +72,7 @@ export const ContactInfo: React.FC = () => {
       <div className="contact-expectations-box">
         <div className="expectations-header">
           <ShieldCheck size={20} className="expectations-icon" />
-          <h4 className="expectations-title">What happens next?</h4>
+          <h3 className="expectations-title">What happens next?</h3>
         </div>
         <ul className="expectations-list">
           <li>
@@ -62,7 +81,7 @@ export const ContactInfo: React.FC = () => {
           </li>
           <li>
             <CheckCircle2 size={16} className="expectation-check" />
-            <span>We schedule a direct, 30-minute discovery conversation.</span>
+            <span>We schedule a free 30-minute discovery call.</span>
           </li>
           <li>
             <CheckCircle2 size={16} className="expectation-check" />

@@ -1,9 +1,3 @@
-export interface ProblemItem {
-  id: string;
-  title: string;
-  description: string;
-}
-
 export interface ServiceItem {
   id: string;
   title: string;
@@ -29,9 +23,11 @@ export interface ProjectItem {
   id: string;
   category: string;
   title: string;
-  badge: 'POC' | 'Demonstration / POC' | 'AI / NLP Project';
+  badge: 'Proof of concept' | 'Demonstration' | 'Research project';
   badgeType: 'poc' | 'demo' | 'nlp';
   description: string;
+  /** One-line outcome used on the homepage's compact cards. */
+  summary: string;
   demonstrates: string[];
   repoUrl?: string;
 }

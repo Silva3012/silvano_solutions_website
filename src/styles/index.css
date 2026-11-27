@@ -73,45 +73,38 @@ button {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.section-dark {
-  background-color: var(--color-brand-dark);
-  color: var(--color-text-on-dark);
-}
-
-/* Typography Utilities */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-heading);
   font-weight: 700;
   line-height: 1.25;
+  text-wrap: balance; /* even line lengths in multi-line headings */
+}
+
+/* Display and section headings carry the serif; smaller headings stay Inter. */
+h1, h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+}
+
+p, li, dd {
+  text-wrap: pretty; /* avoids a single word alone on the last line */
 }
 
 p {
   color: var(--color-text-body);
 }
 
-/* Grid & Flex Utilities */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
+/* Grid utility (used by the Work and About pages) */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 @media (max-width: 1024px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -121,9 +114,69 @@ p {
   .section {
     padding: 3.5rem 0;
   }
-  .grid-2, .grid-3, .grid-4 {
+  .grid-3 {
     grid-template-columns: 1fr;
   }
+}
+
+/* Browser surfaces in the palette: text selection and the text caret. */
+::selection {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-text-heading);
+}
+
+input,
+textarea {
+  caret-color: var(--color-accent);
+}
+
+/* Keyboard focus: one visible ring everywhere (mouse clicks don't show it). */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* On the dark surfaces the accent blue is too close to the background. */
+.site-footer :focus-visible,
+.languages-band :focus-visible,
+.final-cta-card :focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--color-text-on-dark);
+}
+
+/* The skip link targets <main>; it needs no ring of its own. */
+main:focus {
+  outline: none;
+}
+
+/* Anchor targets land below the 72px sticky header instead of under it. */
+[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Respect a system "reduce motion" setting: no smooth scroll, no hover lifts. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .card-hoverable:hover,
+  .footer-cta-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* Keep short identifiers (registration numbers, etc.) on one line. */
+.nowrap {
+  white-space: nowrap;
 }
 
 /* Accessibility */

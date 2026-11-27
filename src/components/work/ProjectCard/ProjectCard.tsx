@@ -7,9 +7,11 @@ import './ProjectCard.css';
 
 interface ProjectCardProps {
   project: ProjectItem;
+  /** Homepage teaser: badge, title and one-line summary only. */
+  compact?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = false }) => {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Business Application':
@@ -23,11 +25,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }
   };
 
+  if (compact) {
+    return (
+      <Card padding="md" className="project-card project-card-compact">
+        <div className="project-card-top">
+          <Badge variant={project.badgeType} size="md">
+            {project.badge}
+          </Badge>
+        </div>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.summary}</p>
+      </Card>
+    );
+  }
+
   return (
-    <Card padding="lg" hoverable className="project-card">
+    <Card padding="lg" className="project-card">
       <div className="project-card-top">
         <div className="project-category-meta">
-          <span className="project-category-icon">
+          <span className="project-category-icon" aria-hidden="true">
             {getCategoryIcon(project.category)}
           </span>
           <span className="project-category-name">{project.category}</span>
@@ -37,15 +53,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </Badge>
       </div>
 
-      <h3 className="project-title">{project.title}</h3>
+      {/* On the Work page these cards sit directly under the page h1. */}
+      <h2 className="project-title">{project.title}</h2>
       <p className="project-description">{project.description}</p>
 
       <div className="project-capabilities-section">
-        <h4 className="capabilities-label">Demonstrates:</h4>
+        <h3 className="capabilities-label">Skills shown</h3>
         <ul className="capabilities-list">
           {project.demonstrates.map((item, idx) => (
             <li key={idx} className="capability-item">
-              <CheckCircle size={14} className="capability-check" />
+              <CheckCircle size={14} className="capability-check" aria-hidden="true" />
               <span>{item}</span>
             </li>
           ))}
@@ -55,9 +72,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="project-card-honest-note">
         <span className="honest-dot"></span>
         <span className="honest-text">
-          {project.badgeType === 'poc' && 'Proof of concept architecture & functional prototype.'}
-          {project.badgeType === 'nlp' && 'Applied linguistic research & data engineering initiative.'}
-          {project.badgeType === 'demo' && 'Functional demonstration workflow for operations.'}
+          {project.badgeType === 'poc' && 'A working prototype built to prove the approach.'}
+          {project.badgeType === 'nlp' && 'Applied language research and data work, in development.'}
+          {project.badgeType === 'demo' && 'A demonstration of an operations workflow.'}
         </span>
       </div>
     </Card>

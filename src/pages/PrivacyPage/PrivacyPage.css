@@ -1,0 +1,52 @@
+/* A reading page: one comfortable column, clear section headings. */
+.privacy-inner {
+  max-width: var(--measure);
+}
+
+.privacy-title {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.privacy-updated {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.privacy-inner h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-3);
+}
+
+.privacy-inner p,
+.privacy-inner li {
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.privacy-inner p + p,
+.privacy-inner ul + p {
+  margin-top: var(--space-3);
+}
+
+.privacy-inner ul {
+  margin-top: var(--space-2);
+  padding-left: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.privacy-inner a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.privacy-back {
+  margin-top: var(--space-7);
+}
+

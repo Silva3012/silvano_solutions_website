@@ -1,95 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { Menu, X } from 'lucide-react';
 import './Header.css';
 
+const navItems = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/services', label: 'Services' },
+  { to: '/work', label: 'Work' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+];
+
 export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
-  // Close mobile menu on route change
-  useEffect(() => {
+  const closeMenu = useCallback((returnFocus = true) => {
     setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+    if (returnFocus) toggleRef.current?.focus();
+  }, []);
 
-  // Prevent background scroll when mobile menu is open
+  // While the drawer is open: lock background scroll, move focus into it,
+  // close on Escape, and keep Tab / Shift+Tab inside it.
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    if (!isMobileMenuOpen) return;
+
+    document.body.style.overflow = 'hidden';
+    const drawer = drawerRef.current;
+    const focusables = () =>
+      Array.from(drawer?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? []);
+    focusables()[0]?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      // The toggle stays reachable so the menu can be closed from the keyboard.
+      const items = [toggleRef.current, ...focusables()].filter(Boolean) as HTMLElement[];
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
     return () => {
+      document.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = '';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, closeMenu]);
 
   return (
     <header className="site-header">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <div className="container header-container">
-        <Link to="/" className="brand-link" aria-label="Silvano Solutions Home">
+        <Link
+          to="/"
+          className="brand-link"
+          aria-label="Silvano Solutions home"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
           <img
             src="/brand/Silvano_Solutions_Primary_Horizontal_Logo.svg"
-            alt="Silvano Solutions"
+            alt=""
             className="brand-logo"
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav" aria-label="Main Navigation">
+        <nav className="desktop-nav" aria-label="Main">
           <ul className="nav-list">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'nav-link-active' : ''}`
-                }
-                end
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/services"
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'nav-link-active' : ''}`
-                }
-              >
-                Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/work"
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'nav-link-active' : ''}`
-                }
-              >
-                Work
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'nav-link-active' : ''}`
-                }
-              >
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'nav-link-active' : ''}`
-                }
-              >
-                Contact
-              </NavLink>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -98,79 +101,47 @@ export const Header: React.FC = () => {
             Start a conversation
           </Button>
 
-          {/* Mobile Menu Button */}
           <button
+            ref={toggleRef}
             type="button"
             className="mobile-toggle"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-controls="mobile-nav-drawer"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="mobile-nav-overlay" onClick={() => setIsMobileMenuOpen(false)}>
-          <div className="mobile-nav-drawer" onClick={(e) => e.stopPropagation()}>
-            <nav aria-label="Mobile Navigation">
+        <div className="mobile-nav-overlay" onClick={() => closeMenu()}>
+          <div
+            id="mobile-nav-drawer"
+            ref={drawerRef}
+            className="mobile-nav-drawer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <nav aria-label="Mobile">
               <ul className="mobile-nav-list">
-                <li>
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                      `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
-                    }
-                    end
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/services"
-                    className={({ isActive }) =>
-                      `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
-                    }
-                  >
-                    Services
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/work"
-                    className={({ isActive }) =>
-                      `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
-                    }
-                  >
-                    Work
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/about"
-                    className={({ isActive }) =>
-                      `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
-                    }
-                  >
-                    About
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/contact"
-                    className={({ isActive }) =>
-                      `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
-                    }
-                  >
-                    Contact
-                  </NavLink>
-                </li>
+                {navItems.map((item) => (
+                  <li key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      end={item.end}
+                      onClick={() => closeMenu(false)}
+                      className={({ isActive }) =>
+                        `mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
-            <div className="mobile-drawer-footer">
+            <div className="mobile-drawer-footer" onClick={() => closeMenu(false)}>
               <Button to="/contact" variant="primary" size="md" className="mobile-cta-btn">
                 Start a conversation
               </Button>

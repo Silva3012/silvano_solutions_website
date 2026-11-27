@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import type { ContactFormData } from '../../../types';
 import { Button } from '../../common/Button/Button';
 import { CheckCircle, Send, AlertCircle } from 'lucide-react';
+import { company } from '../../../data/companyData';
+import { servicesData } from '../../../data/servicesData';
 import './ContactForm.css';
 
 interface ContactFormProps {
@@ -11,28 +13,30 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   const [searchParams] = useSearchParams();
-  const preselectedService = searchParams.get('service') || '';
 
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    company: '',
-    serviceInterest: '',
-    message: '',
+  // Preselect the service from ?service=<id> (e.g. from a "Discuss …" button),
+  // ignoring values that aren't one of the form's options.
+  const [formData, setFormData] = useState<ContactFormData>(() => {
+    const requested = searchParams.get('service') ?? '';
+    const known = [...servicesData.map((s) => s.id), 'other'];
+    return {
+      name: '',
+      email: '',
+      company: '',
+      serviceInterest: known.includes(requested) ? requested : '',
+      message: '',
+    };
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
+  // Move focus to the confirmation so keyboard and screen-reader users hear it.
   useEffect(() => {
-    if (preselectedService) {
-      setFormData((prev) => ({
-        ...prev,
-        serviceInterest: preselectedService,
-      }));
-    }
-  }, [preselectedService]);
+    if (submitted) successHeadingRef.current?.focus();
+  }, [submitted]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -50,16 +54,28 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     e.preventDefault();
     setErrorMessage(null);
 
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim()) {
-      setErrorMessage('Please provide both your name and a valid email address.');
+    // Say exactly which field needs attention and how to fix it.
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your name.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      setErrorMessage('Please enter a valid email address, like name@company.co.za.');
       return;
     }
 
+    // Guard against a double click sending the enquiry twice.
+    if (isSubmitting) return;
     setIsSubmitting(true);
 
+    // Give up after 15 seconds so a stalled connection shows the error
+    // (with the email fallback) instead of spinning forever.
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
+
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@silvanosolutions.co.za', {
+      const response = await fetch(`https://formsubmit.co/ajax/${company.email}`, {
+        signal: controller.signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +83,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         },
         body: JSON.stringify({
           ...formData,
-          _subject: `New inquiry from ${formData.name}`,
+          _subject: `New enquiry from ${formData.name}`,
           _captcha: 'true',
         }),
       });
@@ -86,8 +102,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
       setSubmitted(true);
       if (onSuccess) onSuccess();
     } catch {
-      setErrorMessage('Something went wrong submitting your request. Please email us directly.');
+      setErrorMessage(
+        `Your message didn't send. Please try again, or email us at ${company.email}.`
+      );
     } finally {
+      window.clearTimeout(timeout);
       setIsSubmitting(false);
     }
   };
@@ -110,23 +129,20 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         <div className="success-icon-wrap">
           <CheckCircle size={36} className="success-icon" />
         </div>
-        <h3 className="success-title">Thank you for reaching out</h3>
+        <h3 className="success-title" ref={successHeadingRef} tabIndex={-1}>
+          Thanks, your message has been sent
+        </h3>
         <p className="success-message">
-          We have received your message regarding{' '}
-          <strong>{formData.company || 'your business'}</strong>. We will review what you are
-          looking to build or automate and follow up promptly.
+          {company.principal.name} will review it and reply to{' '}
+          <strong className="success-email">{formData.email}</strong>, typically within 24 business hours,
+          to arrange your free 30-minute call.
         </p>
         <div className="success-actions">
           <Button variant="outline" size="sm" onClick={handleReset}>
             Send another message
           </Button>
-          <a
-            href={`mailto:info@silvanosolutions.co.za?subject=Follow-up: ${encodeURIComponent(
-              formData.serviceInterest || 'Business Inquiry'
-            )}`}
-            className="direct-mail-fallback"
-          >
-            Direct email copy
+          <a href={`mailto:${company.email}`} className="direct-mail-fallback">
+            Need to add something? Email {company.email}
           </a>
         </div>
       </div>
@@ -135,20 +151,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      {errorMessage && (
-        <div className="form-alert form-alert-error">
-          <AlertCircle size={18} />
-          <span>{errorMessage}</span>
-        </div>
-      )}
+      {/* Always-present live region so screen readers announce new errors. */}
+      <div role="alert" aria-live="assertive">
+        {errorMessage && (
+          <div className="form-alert form-alert-error">
+            <AlertCircle size={18} aria-hidden="true" />
+            <span>{errorMessage}</span>
+          </div>
+        )}
+      </div>
 
       <div className="form-group">
         <label htmlFor="name" className="form-label">
-          Your Name <span className="required-star">*</span>
+          Your Name <span className="required-star" aria-hidden="true">*</span>
         </label>
         <input
           type="text"
           id="name"
+          autoComplete="name"
+          maxLength={100}
           name="name"
           required
           value={formData.name}
@@ -161,11 +182,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
       <div className="form-group">
         <label htmlFor="email" className="form-label">
-          Work Email <span className="required-star">*</span>
+          Email <span className="required-star" aria-hidden="true">*</span>
         </label>
         <input
           type="email"
           id="email"
+          autoComplete="email"
+          maxLength={254}
           name="email"
           required
           value={formData.email}
@@ -183,6 +206,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         <input
           type="text"
           id="company"
+          autoComplete="organization"
+          maxLength={120}
           name="company"
           value={formData.company}
           onChange={handleChange}
@@ -204,7 +229,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
           className="form-select"
           disabled={isSubmitting}
         >
-          <option value="">Select an area of focus...</option>
+          <option value="">Choose one (optional)</option>
           <option value="application-development">Application Development</option>
           <option value="ai-solutions">AI Solutions</option>
           <option value="automation-integrations">Automation & Integrations</option>
@@ -220,6 +245,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         </label>
         <textarea
           id="message"
+          maxLength={5000}
           name="message"
           rows={4}
           value={formData.message}
@@ -237,12 +263,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         disabled={isSubmitting}
         className="form-submit-btn"
       >
-        <span>{isSubmitting ? 'Sending inquiry...' : 'Send inquiry'}</span>
+        <span>{isSubmitting ? 'Sending enquiry…' : 'Send enquiry'}</span>
         <Send size={16} />
       </Button>
 
       <p className="form-privacy-note">
-        Direct founder review. No spam, no sales pressure.
+        We'll use your details only to respond to your enquiry. See our{' '}
+        <Link to="/privacy">privacy notice</Link>. No spam, no sales pressure.
       </p>
     </form>
   );

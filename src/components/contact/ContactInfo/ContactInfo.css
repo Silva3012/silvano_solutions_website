@@ -5,14 +5,14 @@
 }
 
 .contact-info-heading {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: var(--text-xl);
+  font-weight: 600;
   color: var(--color-text-heading);
   margin-bottom: 0.5rem;
 }
 
 .contact-info-sub {
-  font-size: 0.975rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-text-body);
   margin-bottom: 1.75rem;
@@ -44,7 +44,7 @@
 
 .channel-label {
   display: block;
-  font-size: 0.775rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -53,21 +53,26 @@
 }
 
 .channel-value {
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 600;
-  color: var(--color-brand-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .channel-value:hover {
-  color: var(--color-brand-dark);
+  color: var(--color-accent-hover);
 }
 
 .channel-value-static {
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   color: var(--color-text-body);
   font-weight: 500;
+}
+
+.channel-value-block {
+  display: block;
+  margin-top: var(--space-1);
 }
 
 .contact-expectations-box {
@@ -89,7 +94,7 @@
 }
 
 .expectations-title {
-  font-size: 1.05rem;
+  font-size: var(--text-base);
   font-weight: 700;
   color: var(--color-text-heading);
 }
@@ -105,7 +110,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.5;
   color: var(--color-text-body);
 }

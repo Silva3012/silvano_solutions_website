@@ -14,8 +14,8 @@ export const servicesData: ServiceItem[] = [
     whatWeDeliver: [
       'Custom web applications and client portals',
       'Internal operational dashboards and admin tools',
-      'Responsive, mobile-optimized business interfaces',
-      'Robust backend APIs and data architectures',
+      'Business interfaces that work well on phones and desktops',
+      'Reliable back-end systems and data structures',
     ],
   },
   {
@@ -25,29 +25,29 @@ export const servicesData: ServiceItem[] = [
     detailedDescription: 'Practical AI is not about hype or buzzwords; it is about solving specific, time-consuming business bottlenecks. We implement AI and machine learning capabilities that plug directly into existing business processes to reduce manual overhead.',
     typicalProblems: [
       'High volume of unstructured emails, documents, or support queries',
-      'Time-consuming manual categorization, document processing, and drafting',
+      'Time-consuming manual sorting, document processing and drafting',
       'Proprietary business knowledge trapped in disparate documents and drives',
     ],
     whatWeDeliver: [
-      'Document and text intelligence pipelines',
-      'Localized Natural Language Processing (NLP) solutions',
-      'Internal knowledge retrieval systems and workflow assistants',
-      'Intelligent routing and triage automation',
+      'Systems that read documents and pull out the information you need',
+      'Language AI for South African languages (in development)',
+      'Assistants that find answers in your internal documents',
+      'Automatic sorting and routing of incoming requests',
     ],
   },
   {
     id: 'automation-integrations',
     title: 'Automation & Integrations',
     shortDescription: 'Connect systems, eliminate repetitive tasks and create workflows that reduce manual effort.',
-    detailedDescription: 'Disconnected tools waste valuable hours and introduce human error. We integrate your software stack—CRM, accounting, communication, and operational tools—so information moves automatically where it needs to without manual copy-pasting.',
+    detailedDescription: 'Disconnected tools waste valuable hours and introduce human error. We integrate your software stack—CRM, accounting, communication, and operational tools—so information moves automatically where it needs to without manual copying and pasting.',
     typicalProblems: [
       'Staff spending hours moving data manually between separate software tools',
       'Sync errors between sales, billing, communication, and inventory',
       'Slow response times caused by manual notification bottlenecks',
     ],
     whatWeDeliver: [
-      'Custom API integrations and webhook pipelines',
-      'Automated data synchronization between tools',
+      'Custom connections between the tools you already use',
+      'Automatic syncing of data between tools',
       'Repetitive administrative task automation',
       'Custom notifications and event-driven alerts',
     ],
@@ -63,10 +63,10 @@ export const servicesData: ServiceItem[] = [
       'Security risks and technical debt accumulating as the business grows',
     ],
     whatWeDeliver: [
-      'Backend system engineering and API design',
-      'Database modeling, optimization, and migrations',
-      'Codebase refactoring, testing, and modernizations',
-      'Cloud deployment pipelines and system maintenance',
+      'Back-end systems and API design',
+      'Database design, performance tuning and migrations',
+      'Cleaning up, testing and modernising existing code',
+      'Automated cloud deployment and ongoing maintenance',
     ],
   },
   {
