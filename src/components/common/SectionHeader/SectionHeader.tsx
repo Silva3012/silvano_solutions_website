@@ -2,7 +2,6 @@ import React from 'react';
 import './SectionHeader.css';
 
 interface SectionHeaderProps {
-  eyebrow?: string;
   title: string;
   description?: string;
   align?: 'left' | 'center';
@@ -13,7 +12,6 @@ interface SectionHeaderProps {
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
-  eyebrow,
   title,
   description,
   align = 'center',
@@ -27,7 +25,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         inverted ? 'section-header-inverted' : ''
       } ${className}`.trim()}
     >
-      {eyebrow && <span className="section-eyebrow">{eyebrow}</span>}
       <Heading className="section-title">{title}</Heading>
       {description && <p className="section-description">{description}</p>}
     </div>

@@ -7,15 +7,13 @@ import './ServiceDetailCard.css';
 
 interface ServiceDetailCardProps {
   service: ServiceItem;
-  index: number;
 }
 
-export const ServiceDetailCard: React.FC<ServiceDetailCardProps> = ({ service, index }) => {
+export const ServiceDetailCard: React.FC<ServiceDetailCardProps> = ({ service }) => {
   return (
     // The id makes each service linkable, e.g. /services#ai-solutions (used by the footer).
     <Card padding="lg" className="service-detail-card" id={service.id}>
       <div className="service-detail-header">
-        <span className="service-detail-index" aria-hidden="true">0{index + 1}</span>
         <h2 className="service-detail-title">{service.title}</h2>
       </div>
 

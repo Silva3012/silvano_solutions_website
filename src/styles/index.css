@@ -73,11 +73,6 @@ button {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.section-dark {
-  background-color: var(--color-brand-dark);
-  color: var(--color-text-on-dark);
-}
-
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-heading);
@@ -102,29 +97,14 @@ p {
   color: var(--color-text-body);
 }
 
-/* Grid & Flex Utilities */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
+/* Grid utility (used by the Work and About pages) */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 @media (max-width: 1024px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -134,9 +114,20 @@ p {
   .section {
     padding: 3.5rem 0;
   }
-  .grid-2, .grid-3, .grid-4 {
+  .grid-3 {
     grid-template-columns: 1fr;
   }
+}
+
+/* Browser surfaces in the palette: text selection and the text caret. */
+::selection {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-text-heading);
+}
+
+input,
+textarea {
+  caret-color: var(--color-accent);
 }
 
 /* Keyboard focus: one visible ring everywhere (mouse clicks don't show it). */

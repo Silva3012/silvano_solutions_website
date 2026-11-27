@@ -5,23 +5,25 @@
   background-color: var(--color-bg-card);
 }
 
-.philosophy-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-brand-surface);
-  color: var(--color-brand-primary);
+.philosophy-card-head {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.philosophy-icon {
+  display: flex;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+  color: var(--color-brand-primary);
 }
 
 .philosophy-card-title {
   font-size: var(--text-lg);
   font-weight: 700;
+  line-height: 1.35;
   color: var(--color-text-heading);
-  margin-bottom: 0.65rem;
 }
 
 .philosophy-card-desc {

@@ -17,7 +17,6 @@ export const WorkPage: React.FC = () => {
         <div className="container">
           <SectionHeader
             as="h1"
-            eyebrow="Our Portfolio"
             title="Selected work and functional proofs of concept."
             description="We build working prototypes, internal demonstrations, and language systems to validate technical architectures before full rollout."
             align="center"

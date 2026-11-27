@@ -1,6 +1,6 @@
 /* A reading page: one comfortable column, clear section headings. */
 .privacy-inner {
-  max-width: 72ch;
+  max-width: var(--measure);
 }
 
 .privacy-title {

@@ -14,19 +14,19 @@ export const ContactInfo: React.FC = () => {
 
         <div className="contact-channel-list">
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <Mail size={18} />
             </div>
             <div>
               <span className="channel-label">Email</span>
-              <a href="mailto:info@silvanosolutions.co.za" className="channel-value">
-                info@silvanosolutions.co.za
+              <a href={`mailto:${company.email}`} className="channel-value">
+                {company.email}
               </a>
             </div>
           </div>
 
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <MapPin size={18} />
             </div>
             <div>
@@ -38,7 +38,7 @@ export const ContactInfo: React.FC = () => {
           </div>
 
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <Building2 size={18} />
             </div>
             <div>
@@ -56,7 +56,7 @@ export const ContactInfo: React.FC = () => {
           </div>
 
           <div className="contact-channel-item">
-            <div className="channel-icon-wrap">
+            <div className="channel-icon-wrap" aria-hidden="true">
               <Clock size={18} />
             </div>
             <div>

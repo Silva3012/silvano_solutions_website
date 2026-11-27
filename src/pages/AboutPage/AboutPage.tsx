@@ -23,7 +23,6 @@ export const AboutPage: React.FC = () => {
         <div className="container">
           <SectionHeader
             as="h1"
-            eyebrow="About Silvano Solutions"
             title="Why does Silvano Solutions exist and how does it think?"
             description="We are a South African technology consultancy founded on a simple premise: technology should solve a business problem — not create another one."
             align="center"
@@ -36,7 +35,6 @@ export const AboutPage: React.FC = () => {
         <div className="container">
           <div className="narrative-grid">
             <div className="narrative-text">
-              <span className="narrative-badge">Our Mission</span>
               <h2 className="narrative-heading">
                 Practical systems for businesses that value outcomes over hype.
               </h2>
@@ -74,7 +72,6 @@ export const AboutPage: React.FC = () => {
       <section className="section section-alt about-experience-section">
         <div className="container">
           <div className="experience-intro">
-            <span className="experience-badge">Foundational Background</span>
             <h2 className="experience-title">
               Built on multi-disciplinary operational experience.
             </h2>
@@ -86,19 +83,19 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid-3 experience-pillars">
             <PhilosophyCard
-              icon={<Network size={22} />}
+              icon={<Network size={20} />}
               title="IT Support & Infrastructure"
               description="Deep background in physical networking, server configuration, hardware reliability, and frontline troubleshooting. We understand how systems behave when real users touch them."
             />
 
             <PhilosophyCard
-              icon={<Layers size={22} />}
+              icon={<Layers size={20} />}
               title="Software Development"
               description="End-to-end full-stack development using modern web technologies, modular architectures, clean APIs, and databases engineered for data integrity and speed."
             />
 
             <PhilosophyCard
-              icon={<Users size={22} />}
+              icon={<Users size={20} />}
               title="Sales & Customer Service"
               description="Commercial and frontline client interaction experience. We know that if a system is confusing or frustrating for staff or customers, it has failed regardless of code quality."
             />
@@ -114,7 +111,6 @@ export const AboutPage: React.FC = () => {
               <Sparkles size={28} />
             </div>
             <div className="ai-content">
-              <span className="ai-badge">Our Perspective on AI</span>
               <h2 className="ai-title">An AI-First Approach Grounded in Utility</h2>
               <p className="ai-desc">
                 We do not view artificial intelligence as a marketing gimmick. We view it as an
@@ -135,14 +131,12 @@ export const AboutPage: React.FC = () => {
       <section className="section section-alt about-principles-section">
         <div className="container">
           <SectionHeader
-            eyebrow="How We Think"
             title="Our Guiding Principles"
             description="The rules that govern every project we accept and every line of code we write."
           />
 
           <div className="grid-3 principles-grid">
             <Card padding="md" className="principle-card">
-              <div className="principle-number" aria-hidden="true">01</div>
               <h3 className="principle-title">Clarity Before Code</h3>
               <p className="principle-desc">
                 We diagnose before we prescribe. We will never start building until we have verified
@@ -151,7 +145,6 @@ export const AboutPage: React.FC = () => {
             </Card>
 
             <Card padding="md" className="principle-card">
-              <div className="principle-number" aria-hidden="true">02</div>
               <h3 className="principle-title">Right-Sized Systems</h3>
               <p className="principle-desc">
                 We build what is necessary for your current stage and next milestone. We avoid bloated
@@ -160,7 +153,6 @@ export const AboutPage: React.FC = () => {
             </Card>
 
             <Card padding="md" className="principle-card">
-              <div className="principle-number" aria-hidden="true">03</div>
               <h3 className="principle-title">Long-Term Maintainability</h3>
               <p className="principle-desc">
                 We deliver clean codebases, standard conventions, and transparent documentation so your

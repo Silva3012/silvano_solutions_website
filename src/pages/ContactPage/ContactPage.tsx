@@ -16,7 +16,6 @@ export const ContactPage: React.FC = () => {
         <div className="container">
           <SectionHeader
             as="h1"
-            eyebrow="Get In Touch"
             title="Let's discuss what you are trying to build or automate."
             description="Whether you have an immediate operational bottleneck, need a proof of concept developed, or want to audit your existing tools, we are ready to listen."
             align="center"

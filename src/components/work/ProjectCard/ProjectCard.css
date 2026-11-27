@@ -6,12 +6,12 @@
 }
 
 .project-card-top {
+  /* Category and badge always stacked, so every card starts the same way. */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 .project-category-meta {
@@ -45,11 +45,10 @@
 }
 
 .project-capabilities-section {
-  background-color: var(--color-bg-subtle);
-  padding: 1.25rem;
-  border-radius: var(--radius-sm);
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--border-subtle);
+  /* A divided section inside the card, not a second box. */
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-5);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .capabilities-label {
@@ -103,4 +102,9 @@
   border-radius: 50%;
   background-color: var(--color-brand-light);
   flex-shrink: 0;
+}
+
+/* On the Work page the title is a serif h2; only the 600 serif weight is loaded. */
+h2.project-title {
+  font-weight: 600;
 }
