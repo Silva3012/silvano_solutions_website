@@ -112,39 +112,41 @@ a.project-media:hover img {
   flex: 1;
 }
 
-.project-capabilities-section {
-  /* A divided section inside the card, not a second box. */
+/* "What it does": business outcomes, in a divided section (not a second box). */
+.project-outcomes-section {
   padding-top: var(--space-4);
   margin-bottom: var(--space-5);
   border-top: 1px solid var(--border-subtle);
 }
 
-.capabilities-label {
+.outcomes-label {
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-text-body); /* muted grey was 4.3:1 on this tinted panel */
+  color: var(--color-text-body);
   margin-bottom: 0.75rem;
 }
 
-.capabilities-list {
+.outcomes-list {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
-.capability-item {
+/* Outcomes are full sentences that may wrap, so the tick aligns to the first line. */
+.outcome-item {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: var(--space-2);
   font-size: var(--text-sm);
+  line-height: 1.5;
   color: var(--color-text-body);
-  font-weight: 500;
 }
 
-.capability-check {
+.outcome-check {
+  margin-top: 0.2rem;
   color: var(--color-brand-primary);
   flex-shrink: 0;
 }

@@ -28,7 +28,8 @@ export interface ProjectItem {
   description: string;
   /** One-line outcome used on the homepage's compact cards. */
   summary: string;
-  demonstrates: string[];
+  /** What the project does, in business terms (shown on the Work page). */
+  outcomes: string[];
   /** Live destination (opens in a new tab). Only link to something real and public. */
   link?: { href: string; label: string };
   /** Real screenshot of the project; never a mock-up or stock image. */
