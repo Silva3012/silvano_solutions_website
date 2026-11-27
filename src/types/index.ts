@@ -23,13 +23,18 @@ export interface ProjectItem {
   id: string;
   category: string;
   title: string;
-  badge: 'Proof of concept' | 'Demonstration' | 'Research project';
-  badgeType: 'poc' | 'demo' | 'nlp';
+  badge: 'Public beta' | 'Proof of concept' | 'Demonstration' | 'Research project';
+  badgeType: 'beta' | 'poc' | 'demo' | 'nlp';
   description: string;
   /** One-line outcome used on the homepage's compact cards. */
   summary: string;
   demonstrates: string[];
-  repoUrl?: string;
+  /** Live destination (opens in a new tab). Only link to something real and public. */
+  link?: { href: string; label: string };
+  /** Real screenshot of the project; never a mock-up or stock image. */
+  image?: { src: string; alt: string; width: number; height: number };
+  /** Shown as a wide card spanning the grid, with the image beside the text. */
+  featured?: boolean;
 }
 
 export interface ContactFormData {

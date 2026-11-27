@@ -35,7 +35,17 @@ export const LanguagesBand: React.FC = () => {
             </div>
             <div className="languages-fact">
               <dt>Work so far</dt>
-              <dd>Language data and text processing</dd>
+              <dd>
+                <a
+                  className="languages-fact-link"
+                  href="https://huggingface.co/datasets/silvanosolutions/xhosa-nlp-dataset"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  A public isiXhosa–English dataset
+                  <span className="sr-only"> (opens Hugging Face in a new tab)</span>
+                </a>
+              </dd>
             </div>
           </dl>
 

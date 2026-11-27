@@ -2,7 +2,7 @@ import React from 'react';
 import type { ProjectItem } from '../../../types';
 import { Card } from '../../common/Card/Card';
 import { Badge } from '../../common/Badge/Badge';
-import { Layers, Cpu, Workflow, CheckCircle } from 'lucide-react';
+import { Layers, Cpu, Workflow, ShoppingBag, CheckCircle, ArrowUpRight } from 'lucide-react';
 import './ProjectCard.css';
 
 interface ProjectCardProps {
@@ -11,71 +11,125 @@ interface ProjectCardProps {
   compact?: boolean;
 }
 
+const categoryIcons: Record<string, React.ReactNode> = {
+  'E-commerce Platform': <ShoppingBag size={18} />,
+  'Business Application': <Layers size={18} />,
+  'AI / NLP': <Cpu size={18} />,
+  'Business Automation': <Workflow size={18} />,
+};
+
+const honestNotes: Record<ProjectItem['badgeType'], string> = {
+  beta: 'A public beta: payments run in PayFast’s sandbox, so no real money moves.',
+  poc: 'A working prototype built to prove the approach.',
+  nlp: 'Applied language research and data work, in development.',
+  demo: 'A demonstration of an operations workflow.',
+};
+
+/** Screenshot that links to the live project. */
+const ProjectMedia: React.FC<{ project: ProjectItem }> = ({ project }) => {
+  const { image, link } = project;
+  if (!image) return null;
+  const img = (
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+  return link ? (
+    <a
+      className="project-media"
+      href={link.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${link.label}: ${project.title} (opens in a new tab)`}
+    >
+      {img}
+    </a>
+  ) : (
+    <div className="project-media">{img}</div>
+  );
+};
+
+/** Text link to the live project, announced as opening in a new tab. */
+const ProjectLink: React.FC<{ project: ProjectItem }> = ({ project }) =>
+  project.link ? (
+    <a className="project-link" href={project.link.href} target="_blank" rel="noopener noreferrer">
+      <span>{project.link.label}</span>
+      <ArrowUpRight size={16} aria-hidden="true" />
+      <span className="sr-only"> (opens in a new tab)</span>
+    </a>
+  ) : null;
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = false }) => {
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Business Application':
-        return <Layers size={18} />;
-      case 'AI / NLP':
-        return <Cpu size={18} />;
-      case 'Business Automation':
-        return <Workflow size={18} />;
-      default:
-        return <Layers size={18} />;
-    }
-  };
+  const classes = [
+    'project-card',
+    compact ? 'project-card-compact' : '',
+    project.featured ? 'project-card-featured' : '',
+    project.image ? 'project-card-has-media' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   if (compact) {
     return (
-      <Card padding="md" className="project-card project-card-compact">
-        <div className="project-card-top">
-          <Badge variant={project.badgeType} size="md">
-            {project.badge}
-          </Badge>
+      <Card padding="none" className={classes}>
+        <ProjectMedia project={project} />
+        <div className="project-body">
+          <div className="project-card-top">
+            <Badge variant={project.badgeType} size="md">
+              {project.badge}
+            </Badge>
+          </div>
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-description">{project.summary}</p>
+          <ProjectLink project={project} />
         </div>
-        <h3 className="project-title">{project.title}</h3>
-        <p className="project-description">{project.summary}</p>
       </Card>
     );
   }
 
   return (
-    <Card padding="lg" className="project-card">
-      <div className="project-card-top">
-        <div className="project-category-meta">
-          <span className="project-category-icon" aria-hidden="true">
-            {getCategoryIcon(project.category)}
-          </span>
-          <span className="project-category-name">{project.category}</span>
+    <Card padding="none" className={classes}>
+      <ProjectMedia project={project} />
+      <div className="project-body">
+        <div className="project-card-top">
+          <div className="project-category-meta">
+            <span className="project-category-icon" aria-hidden="true">
+              {categoryIcons[project.category] ?? <Layers size={18} />}
+            </span>
+            <span className="project-category-name">{project.category}</span>
+          </div>
+          <Badge variant={project.badgeType} size="md">
+            {project.badge}
+          </Badge>
         </div>
-        <Badge variant={project.badgeType} size="md">
-          {project.badge}
-        </Badge>
-      </div>
 
-      {/* On the Work page these cards sit directly under the page h1. */}
-      <h2 className="project-title">{project.title}</h2>
-      <p className="project-description">{project.description}</p>
+        {/* On the Work page these cards sit directly under the page h1. */}
+        <h2 className="project-title">{project.title}</h2>
+        <p className="project-description">{project.description}</p>
 
-      <div className="project-capabilities-section">
-        <h3 className="capabilities-label">Skills shown</h3>
-        <ul className="capabilities-list">
-          {project.demonstrates.map((item, idx) => (
-            <li key={idx} className="capability-item">
-              <CheckCircle size={14} className="capability-check" aria-hidden="true" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="project-capabilities-section">
+          <h3 className="capabilities-label">Skills shown</h3>
+          <ul className="capabilities-list">
+            {project.demonstrates.map((item) => (
+              <li key={item} className="capability-item">
+                <CheckCircle size={14} className="capability-check" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="project-card-honest-note">
-        <span className="honest-dot"></span>
-        <span className="honest-text">
-          {project.badgeType === 'poc' && 'A working prototype built to prove the approach.'}
-          {project.badgeType === 'nlp' && 'Applied language research and data work, in development.'}
-          {project.badgeType === 'demo' && 'A demonstration of an operations workflow.'}
-        </span>
+        <ProjectLink project={project} />
+
+        <div className="project-card-honest-note">
+          <span className="honest-dot" aria-hidden="true"></span>
+          <span className="honest-text">{honestNotes[project.badgeType]}</span>
+        </div>
       </div>
     </Card>
   );

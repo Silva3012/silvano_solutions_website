@@ -11,7 +11,8 @@ export interface CompanyDetails {
   registrationNumber: string;
   city: string;
   country: string;
-  principal: { name: string; role: string };
+  /** url: the principal's personal site, linked wherever the site introduces them. */
+  principal: { name: string; role: string; url: string };
   email: string;
   /** Set only once the EME sworn affidavit is signed and commissioned. */
   bbbee: { level: string; recognition: string } | null;
@@ -25,7 +26,7 @@ export const company: CompanyDetails = {
   registrationNumber: '2024/493452/07',
   city: 'Cape Town',
   country: 'South Africa',
-  principal: { name: 'Ntsika Silvano', role: 'Principal' },
+  principal: { name: 'Ntsika Silvano', role: 'Principal', url: 'https://ntsikasilvano.vercel.app/' },
   email: 'info@silvanosolutions.co.za',
   bbbee: null, // e.g. { level: 'Level 1 (EME)', recognition: '135%' } once the affidavit is signed
   informationOfficerRegistered: false,

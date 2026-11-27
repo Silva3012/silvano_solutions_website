@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../../common/Button/Button';
 import { ArrowRight } from 'lucide-react';
 import { company } from '../../../data/companyData';
+import { PrincipalLink } from '../../common/PrincipalLink/PrincipalLink';
 import './Hero.css';
 
 export const Hero: React.FC = () => {
@@ -33,7 +34,7 @@ export const Hero: React.FC = () => {
             <li>{company.legalName}</li>
             <li>{company.city}</li>
             <li>
-              Led by {company.principal.name}, {company.principal.role}
+              Led by <PrincipalLink />, {company.principal.role}
             </li>
           </ul>
         </div>

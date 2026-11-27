@@ -3,7 +3,7 @@ import './Badge.css';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'poc' | 'demo' | 'nlp' | 'neutral' | 'accent';
+  variant?: 'beta' | 'poc' | 'demo' | 'nlp' | 'neutral' | 'accent';
   size?: 'sm' | 'md';
 }
 
