@@ -39,7 +39,7 @@ export const WorkPage: React.FC = () => {
 
       <section className="section work-grid-section">
         <div className="container">
-          <div className="grid-3 work-page-grid">
+          <div className="work-page-grid">
             {projectsData.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

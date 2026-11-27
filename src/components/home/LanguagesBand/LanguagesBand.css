@@ -54,6 +54,17 @@
   text-align: right;
 }
 
+.languages-fact-link {
+  color: var(--color-text-on-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-on-dark);
+  text-underline-offset: 4px;
+}
+
+.languages-fact-link:hover {
+  color: var(--color-accent-on-dark);
+}
+
 /* Status is the one fact in colour, with a dot so it isn't colour alone. */
 .languages-fact-status dd {
   display: inline-flex;

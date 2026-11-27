@@ -2,7 +2,75 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden; /* keeps the screenshot inside the card's rounded corners */
   background-color: var(--color-bg-card);
+}
+
+/* Text area of every card (the card itself has no padding so media can bleed). */
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-6);
+}
+
+.project-card-compact .project-body {
+  padding: var(--space-6);
+}
+
+/* Screenshot: a real capture of the live project, linking to it. */
+.project-media {
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.project-media:hover img {
+  transform: scale(1.02);
+}
+
+/* Featured card: spans the grid, screenshot beside the text on wide screens. */
+.project-card-featured {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .project-card-featured.project-card-has-media {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+  }
+
+  /* The screenshot keeps its real 16:10 shape, framed on a tinted panel that
+     fills the column, so it is never cropped however tall the text runs. */
+  .project-card-featured .project-media {
+    display: flex;
+    align-items: center;
+    padding: var(--space-6);
+    border-bottom: none;
+    border-right: 1px solid var(--border-subtle);
+  }
+
+  .project-card-featured .project-media img {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .project-card-featured .project-body {
+    justify-content: center;
+    padding: var(--space-7) var(--space-6);
+  }
 }
 
 .project-card-top {
@@ -81,8 +149,37 @@
   flex-shrink: 0;
 }
 
-/* Compact homepage variant: the summary is the last element, so no trailing gap. */
+/* Link to the live project (accent = action). */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.project-link:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Compact homepage variant: the summary (or link) is the last element. */
 .project-card-compact .project-description {
+  margin-bottom: 0;
+}
+
+/* In the featured teaser the short summary and its link stay together. */
+.project-card-compact.project-card-featured .project-description {
+  flex: 0 0 auto;
+}
+
+.project-card-compact .project-link {
+  margin-top: var(--space-3);
   margin-bottom: 0;
 }
 
@@ -107,4 +204,17 @@
 /* On the Work page the title is a serif h2; only the 600 serif weight is loaded. */
 h2.project-title {
   font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .project-body,
+  .project-card-compact .project-body {
+    padding: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.project-media:hover img {
+    transform: none;
+  }
 }

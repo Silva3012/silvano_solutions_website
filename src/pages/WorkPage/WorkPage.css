@@ -44,6 +44,17 @@
   padding-top: 4rem;
 }
 
+/* Two columns: the featured project spans both, the others sit side by side. */
 .work-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
   margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .work-page-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
 }

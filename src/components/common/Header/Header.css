@@ -99,11 +99,16 @@
   color: var(--color-text-on-dark);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  transform: translateY(-200%);
 }
 
-.skip-link:focus {
-  transform: none;
+/* Visually hidden (but still focusable) until a keyboard user tabs to it. */
+.skip-link:not(:focus) {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Mobile Nav Styles */

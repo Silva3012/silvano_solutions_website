@@ -25,6 +25,7 @@
 
 /* Variant classes are kept so components don't change; they share the base style. */
 .badge-neutral,
+.badge-beta,
 .badge-poc,
 .badge-demo,
 .badge-nlp,
